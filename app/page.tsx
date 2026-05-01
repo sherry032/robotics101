@@ -206,7 +206,7 @@ export default function HomePage() {
             Start with the basics and work your way up. No experience needed.
           </p>
           <Link href="/start-here">
-            <Button size="lg" variant="secondary" className="text-primary font-bold">
+            <Button size="lg" className="bg-white text-primary hover:bg-white/90 font-bold">
               Start Here →
             </Button>
           </Link>
