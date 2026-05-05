@@ -26,6 +26,14 @@ export const metadata: Metadata = {
   title: "Robotics 101 — Learn Robotics From Scratch",
   description:
     "A beginner-friendly robotics education website. Learn how sensors, motors, and code work together through lessons, projects, and real build logs.",
+  icons: {
+    icon: [
+      { url: "/icon.svg?v=4", type: "image/svg+xml" },
+      { url: "/favicon.svg?v=4", type: "image/svg+xml" },
+      { url: "/favicon.ico?v=4", sizes: "any" },
+    ],
+    shortcut: "/icon.svg?v=4",
+  },
 };
 
 export default function RootLayout({
