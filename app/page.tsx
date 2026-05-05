@@ -21,18 +21,20 @@ export default function HomePage() {
   return (
     <div>
       {/* Hero */}
-      <section className="relative bg-gradient-to-br from-primary/5 via-background to-orange-50 py-20 sm:py-28 px-4 sm:px-6 overflow-hidden">
+      <section className="relative overflow-hidden px-4 py-20 sm:px-6 sm:py-28">
         <div className="absolute inset-0 pointer-events-none select-none overflow-hidden">
-          <div className="absolute top-10 right-10 text-[120px] opacity-5 rotate-12">🤖</div>
-          <div className="absolute bottom-10 left-10 text-[80px] opacity-5 -rotate-12">⚙️</div>
+          <div className="absolute right-8 top-8 h-64 w-64 rounded-full border border-primary/20 bg-primary/10 blur-3xl" />
+          <div className="absolute bottom-0 left-8 h-56 w-56 rounded-full border border-secondary/20 bg-secondary/10 blur-3xl" />
         </div>
         <div className="mx-auto max-w-6xl text-center relative">
           <Badge className="mb-4 bg-primary/10 text-primary border-primary/20 hover:bg-primary/10">
-            🚀 Free for beginners
+            AI-ready robotics lab
           </Badge>
-          <h1 className="text-4xl sm:text-6xl font-bold tracking-tight mb-6">
+          <h1 className="mb-6 text-4xl font-bold tracking-tight sm:text-6xl">
             Build Your First Robot{" "}
-            <span className="text-primary">From Scratch</span>
+            <span className="bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
+              From Scratch
+            </span>
           </h1>
           <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-10">
             Robotics 101 breaks down everything you need to know — sensors,
@@ -55,7 +57,7 @@ export default function HomePage() {
       </section>
 
       {/* Stats */}
-      <section className="border-y bg-muted/30 py-8 px-4 sm:px-6">
+      <section className="border-y border-primary/15 bg-muted/25 px-4 py-8 backdrop-blur sm:px-6">
         <div className="mx-auto max-w-6xl grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
           {stats.map((s) => (
             <div key={s.label}>
@@ -71,7 +73,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-6xl">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <Badge className="mb-3 bg-orange-100 text-orange-700 border-orange-200 hover:bg-orange-100">
+              <Badge className="mb-3 border-accent/25 bg-accent/10 text-accent hover:bg-accent/10">
                 Our Mission
               </Badge>
               <h2 className="text-3xl sm:text-4xl font-bold mb-5">
@@ -102,7 +104,7 @@ export default function HomePage() {
                 { icon: "📝", title: "Build Logs", desc: "See the full engineering process" },
                 { icon: "🎯", title: "Beginner Focus", desc: "Designed for day-one learners" },
               ].map((item) => (
-                <div key={item.title} className="bg-muted/40 rounded-xl p-4 border">
+                <div key={item.title} className="rounded-lg border bg-card/80 p-4 shadow-[0_16px_40px_color-mix(in_oklab,var(--background)_70%,black)] backdrop-blur">
                   <div className="text-2xl mb-2">{item.icon}</div>
                   <p className="font-semibold text-sm">{item.title}</p>
                   <p className="text-xs text-muted-foreground mt-1">{item.desc}</p>
@@ -114,7 +116,7 @@ export default function HomePage() {
       </section>
 
       {/* Featured Lessons */}
-      <section className="py-16 sm:py-20 px-4 sm:px-6 bg-muted/20">
+      <section className="border-y border-primary/10 bg-muted/20 px-4 py-16 backdrop-blur sm:px-6 sm:py-20">
         <div className="mx-auto max-w-6xl">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-3">
             <div>
@@ -130,7 +132,7 @@ export default function HomePage() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {featuredLessons.map((lesson) => (
               <Link key={lesson.slug} href={`/lessons/${lesson.slug}`}>
-                <Card className="h-full hover:shadow-md hover:border-primary/30 transition-all group">
+                <Card className="group h-full hover:-translate-y-1 hover:border-primary/45 hover:shadow-[0_0_34px_color-mix(in_oklab,var(--primary)_18%,transparent)]">
                   <CardHeader className="pb-2">
                     <div className="text-3xl mb-2">{lesson.emoji}</div>
                     <CardTitle className="text-base group-hover:text-primary transition-colors">
@@ -150,10 +152,11 @@ export default function HomePage() {
       {/* Featured Project */}
       <section className="py-16 sm:py-20 px-4 sm:px-6">
         <div className="mx-auto max-w-6xl">
-          <div className="rounded-2xl bg-gradient-to-br from-primary/10 to-orange-50 border border-primary/20 p-8 sm:p-12">
+          <div className="relative overflow-hidden rounded-lg border border-primary/25 bg-card/80 p-8 shadow-[0_24px_70px_color-mix(in_oklab,var(--primary)_14%,black)] backdrop-blur-xl sm:p-12">
+            <div className="absolute inset-y-0 right-0 w-1/2 bg-[radial-gradient(circle_at_center,color-mix(in_oklab,var(--primary)_24%,transparent),transparent_68%)]" />
             <div className="max-w-xl">
-              <Badge className="mb-4 bg-primary text-white border-0 hover:bg-primary">
-                ⭐ Beginner Project
+              <Badge className="mb-4 border-primary/35 bg-primary/15 text-primary hover:bg-primary/15">
+                Beginner Project
               </Badge>
               <h2 className="text-3xl font-bold mb-4">Line-Following Robot</h2>
               <p className="text-muted-foreground mb-6">
@@ -177,7 +180,7 @@ export default function HomePage() {
       </section>
 
       {/* Personal story */}
-      <section className="py-16 sm:py-20 px-4 sm:px-6 bg-muted/20">
+      <section className="border-y border-primary/10 bg-muted/20 px-4 py-16 backdrop-blur sm:px-6 sm:py-20">
         <div className="mx-auto max-w-2xl text-center">
           <div className="text-5xl mb-5">👩‍🔬</div>
           <h2 className="text-3xl font-bold mb-5">Why I Built This</h2>
@@ -199,14 +202,14 @@ export default function HomePage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 px-4 sm:px-6 bg-primary text-white">
+      <section className="bg-primary px-4 py-16 text-primary-foreground sm:px-6">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-bold mb-4">Ready to build your first robot?</h2>
-          <p className="mb-8 text-white/80">
+          <p className="mb-8 text-primary-foreground/80">
             Start with the basics and work your way up. No experience needed.
           </p>
           <Link href="/start-here">
-            <Button size="lg" className="bg-white text-primary hover:bg-white/90 font-bold">
+            <Button size="lg" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90">
               Start Here →
             </Button>
           </Link>

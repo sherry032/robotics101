@@ -46,7 +46,7 @@ export default function ContactPage() {
   return (
     <div>
       {/* Hero */}
-      <section className="bg-gradient-to-br from-primary/5 via-background to-secondary/5 py-20 sm:py-24 px-4 sm:px-6">
+      <section className="px-4 py-20 sm:px-6 sm:py-24">
         <div className="mx-auto max-w-2xl text-center">
           <Badge className="mb-4 bg-primary/10 text-primary border-primary/20 hover:bg-primary/10">
             Get in touch
@@ -87,8 +87,8 @@ export default function ContactPage() {
                     onClick={() => setReason(r.label)}
                     className={`flex items-center gap-1.5 text-sm px-3 py-1.5 rounded-full border transition-colors ${
                       reason === r.label
-                        ? "bg-primary text-white border-primary"
-                        : "border-border text-muted-foreground hover:border-primary/50 hover:text-foreground"
+                        ? "border-primary bg-primary text-primary-foreground"
+                        : "border-border bg-muted/25 text-muted-foreground hover:border-primary/50 hover:text-foreground"
                     }`}
                   >
                     <span>{r.icon}</span>

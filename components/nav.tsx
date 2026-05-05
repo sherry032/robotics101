@@ -20,13 +20,13 @@ export function Nav() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b bg-white/90 backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b border-primary/15 bg-background/78 backdrop-blur-xl">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="flex h-16 items-center justify-between">
           <Link href="/" className="flex items-center gap-2 font-bold text-xl">
-            <span className="text-2xl">🤖</span>
-            <span className="text-primary">Robotics</span>
-            <span className="text-foreground">101</span>
+            <span className="flex size-8 items-center justify-center rounded-lg border border-primary/35 bg-primary/10 text-lg shadow-[0_0_24px_color-mix(in_oklab,var(--primary)_22%,transparent)]">🤖</span>
+            <span className="font-display text-primary">Robotics</span>
+            <span className="font-display text-foreground">101</span>
           </Link>
 
           {/* Desktop nav */}
@@ -38,8 +38,8 @@ export function Nav() {
                 className={cn(
                   "px-3 py-2 rounded-md text-sm font-medium transition-colors",
                   pathname === l.href || pathname.startsWith(l.href + "/")
-                    ? "bg-primary/10 text-primary"
-                    : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                    ? "bg-primary/12 text-primary ring-1 ring-primary/25"
+                    : "text-muted-foreground hover:text-foreground hover:bg-muted/70"
                 )}
               >
                 {l.label}
@@ -54,7 +54,7 @@ export function Nav() {
 
           {/* Mobile hamburger */}
           <button
-            className="md:hidden p-2 rounded-md text-muted-foreground hover:text-foreground hover:bg-muted"
+            className="md:hidden rounded-md p-2 text-muted-foreground transition-colors hover:bg-muted/70 hover:text-foreground"
             onClick={() => setOpen(!open)}
             aria-label="Toggle menu"
           >
@@ -77,8 +77,8 @@ export function Nav() {
                 className={cn(
                   "px-3 py-2 rounded-md text-sm font-medium transition-colors",
                   pathname === l.href || pathname.startsWith(l.href + "/")
-                    ? "bg-primary/10 text-primary"
-                    : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                    ? "bg-primary/12 text-primary ring-1 ring-primary/25"
+                    : "text-muted-foreground hover:text-foreground hover:bg-muted/70"
                 )}
               >
                 {l.label}

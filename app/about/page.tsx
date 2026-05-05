@@ -53,7 +53,7 @@ export default function AboutPage() {
   return (
     <div>
       {/* Hero */}
-      <section className="bg-gradient-to-br from-primary/5 via-background to-secondary/5 py-20 sm:py-28 px-4 sm:px-6">
+      <section className="px-4 py-20 sm:px-6 sm:py-28">
         <div className="mx-auto max-w-3xl text-center">
           <div className="text-6xl mb-6">👩‍🔬</div>
           <Badge className="mb-4 bg-primary/10 text-primary border-primary/20 hover:bg-primary/10">
@@ -74,7 +74,7 @@ export default function AboutPage() {
       {/* Story */}
       <section className="py-16 sm:py-20 px-4 sm:px-6">
         <div className="mx-auto max-w-3xl">
-          <Badge className="mb-4 bg-orange-100 text-orange-700 border-orange-200 hover:bg-orange-100">
+          <Badge className="mb-4 border-accent/25 bg-accent/10 text-accent hover:bg-accent/10">
             My Story
           </Badge>
           <h2 className="text-3xl font-bold mb-8">How this all started</h2>
@@ -109,7 +109,7 @@ export default function AboutPage() {
       </section>
 
       {/* Timeline */}
-      <section className="py-16 sm:py-20 px-4 sm:px-6 bg-muted/20">
+      <section className="border-y border-primary/10 bg-muted/20 px-4 py-16 backdrop-blur sm:px-6 sm:py-20">
         <div className="mx-auto max-w-3xl">
           <Badge className="mb-4 bg-primary/10 text-primary border-primary/20 hover:bg-primary/10">
             Timeline
@@ -161,21 +161,21 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 px-4 sm:px-6 bg-primary text-white">
+      <section className="bg-primary px-4 py-16 text-primary-foreground sm:px-6">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-bold mb-4">Want to get in touch?</h2>
-          <p className="mb-8 text-white/80">
+          <p className="mb-8 text-primary-foreground/80">
             Questions, feedback, or just want to share what you&apos;re building
             — I&apos;d love to hear from you.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link href="/contact">
-              <Button size="lg" className="bg-white text-primary hover:bg-white/90 w-full sm:w-auto font-bold">
+              <Button size="lg" className="w-full bg-primary-foreground text-primary hover:bg-primary-foreground/90 sm:w-auto">
                 Contact me →
               </Button>
             </Link>
             <Link href="/start-here">
-              <Button size="lg" className="bg-transparent border border-white text-white hover:bg-white/10 w-full sm:w-auto">
+              <Button size="lg" variant="outline" className="w-full border-primary-foreground/60 text-primary-foreground hover:bg-primary-foreground/10 sm:w-auto">
                 Start learning
               </Button>
             </Link>

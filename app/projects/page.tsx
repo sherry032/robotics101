@@ -69,9 +69,9 @@ const projects = [
 ];
 
 const levelColor: Record<string, string> = {
-  Beginner: "bg-green-100 text-green-700 border-green-200",
-  Intermediate: "bg-yellow-100 text-yellow-700 border-yellow-200",
-  "Real World": "bg-blue-100 text-blue-700 border-blue-200",
+  Beginner: "border-accent/30 bg-accent/10 text-accent",
+  Intermediate: "border-secondary/30 bg-secondary/10 text-secondary",
+  "Real World": "border-primary/30 bg-primary/10 text-primary",
 };
 
 export default function ProjectsPage() {
@@ -99,7 +99,7 @@ export default function ProjectsPage() {
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {group.items.map((project) => (
                   <Link key={project.slug} href={`/projects/${project.slug}`}>
-                    <Card className="h-full hover:shadow-md hover:border-primary/30 transition-all group">
+                    <Card className="group h-full hover:-translate-y-1 hover:border-primary/45 hover:shadow-[0_0_34px_color-mix(in_oklab,var(--primary)_18%,transparent)]">
                       <CardHeader className="pb-2">
                         <div className="text-3xl mb-2">{project.emoji}</div>
                         <CardTitle className="text-base group-hover:text-primary transition-colors">

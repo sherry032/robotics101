@@ -64,16 +64,16 @@ const resources = [
 ];
 
 const typeColors: Record<string, string> = {
-  Website: "bg-blue-100 text-blue-700 border-blue-200",
-  Software: "bg-purple-100 text-purple-700 border-purple-200",
-  Simulator: "bg-cyan-100 text-cyan-700 border-cyan-200",
-  Course: "bg-green-100 text-green-700 border-green-200",
-  Kit: "bg-orange-100 text-orange-700 border-orange-200",
-  Store: "bg-yellow-100 text-yellow-700 border-yellow-200",
-  Community: "bg-pink-100 text-pink-700 border-pink-200",
-  Forum: "bg-indigo-100 text-indigo-700 border-indigo-200",
-  Competition: "bg-red-100 text-red-700 border-red-200",
-  "Built-in": "bg-gray-100 text-gray-700 border-gray-200",
+  Website: "border-primary/30 bg-primary/10 text-primary",
+  Software: "border-secondary/30 bg-secondary/10 text-secondary",
+  Simulator: "border-accent/30 bg-accent/10 text-accent",
+  Course: "border-accent/30 bg-accent/10 text-accent",
+  Kit: "border-primary/30 bg-primary/10 text-primary",
+  Store: "border-secondary/30 bg-secondary/10 text-secondary",
+  Community: "border-secondary/30 bg-secondary/10 text-secondary",
+  Forum: "border-primary/30 bg-primary/10 text-primary",
+  Competition: "border-destructive/35 bg-destructive/10 text-destructive",
+  "Built-in": "border-border bg-muted/40 text-muted-foreground",
 };
 
 export default function ResourcesPage() {
@@ -100,16 +100,16 @@ export default function ResourcesPage() {
               </div>
               <div className="grid sm:grid-cols-2 gap-4">
                 {group.items.map((item) => (
-                  <Card key={item.title} className="hover:border-primary/30 transition-colors">
+                  <Card key={item.title} className="transition-colors hover:border-primary/45">
                     <CardHeader className="pb-2">
                       <div className="flex items-start justify-between gap-2">
                         <CardTitle className="text-sm font-semibold">{item.title}</CardTitle>
                         <div className="flex gap-1 shrink-0">
-                          <Badge className={`text-xs ${typeColors[item.type] ?? "bg-gray-100 text-gray-700"}`}>
+                          <Badge className={`text-xs ${typeColors[item.type] ?? "border-border bg-muted/40 text-muted-foreground"}`}>
                             {item.type}
                           </Badge>
                           {item.free && (
-                            <Badge className="text-xs bg-green-100 text-green-700 border-green-200">
+                            <Badge className="border-accent/30 bg-accent/10 text-xs text-accent">
                               Free
                             </Badge>
                           )}
@@ -126,7 +126,7 @@ export default function ResourcesPage() {
           ))}
         </div>
 
-        <div className="mt-12 p-6 bg-muted/30 rounded-2xl border text-center">
+        <div className="mt-12 rounded-lg border bg-muted/30 p-6 text-center backdrop-blur">
           <p className="font-semibold mb-2">Missing a resource?</p>
           <p className="text-sm text-muted-foreground">
             Reach out and I&apos;ll consider adding it to the list.

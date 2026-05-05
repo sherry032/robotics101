@@ -306,8 +306,8 @@ const lessons: Record<string, LessonData> = {
 };
 
 const difficultyColor: Record<string, string> = {
-  Beginner: "bg-green-100 text-green-700 border-green-200",
-  Intermediate: "bg-yellow-100 text-yellow-700 border-yellow-200",
+  Beginner: "border-accent/30 bg-accent/10 text-accent",
+  Intermediate: "border-secondary/30 bg-secondary/10 text-secondary",
 };
 
 export function generateStaticParams() {
@@ -349,7 +349,7 @@ export default async function LessonPage({ params }: { params: Promise<{ slug: s
           {lesson.sections.map((section) => (
             <div key={section.heading}>
               <h2 className="text-xl font-bold mb-3">{section.heading}</h2>
-              <div className="bg-muted/30 rounded-xl p-5 border text-sm leading-relaxed whitespace-pre-line text-foreground/80">
+              <div className="rounded-lg border bg-muted/30 p-5 text-sm leading-relaxed text-foreground/80 whitespace-pre-line backdrop-blur">
                 {section.body}
               </div>
             </div>
@@ -357,9 +357,9 @@ export default async function LessonPage({ params }: { params: Promise<{ slug: s
         </div>
 
         {/* Common Mistake */}
-        <div className="mb-12 p-5 bg-orange-50 border border-orange-200 rounded-xl">
-          <p className="font-semibold text-orange-800 mb-1">⚠️ Common Mistake</p>
-          <p className="text-sm text-orange-700">{lesson.mistake}</p>
+        <div className="mb-12 rounded-lg border border-accent/25 bg-accent/10 p-5">
+          <p className="mb-1 text-sm font-semibold text-accent">⚠️ Common Mistake</p>
+          <p className="text-sm text-foreground/80">{lesson.mistake}</p>
         </div>
 
         {/* Quiz */}
@@ -367,7 +367,7 @@ export default async function LessonPage({ params }: { params: Promise<{ slug: s
           <h2 className="text-xl font-bold mb-4">🧪 Quick Check</h2>
           <div className="space-y-4">
             {lesson.quiz.map((item, i) => (
-              <details key={i} className="border rounded-xl overflow-hidden">
+              <details key={i} className="overflow-hidden rounded-lg border bg-card/70 backdrop-blur">
                 <summary className="px-5 py-4 cursor-pointer font-medium text-sm hover:bg-muted/30 transition-colors">
                   Q{i + 1}: {item.q}
                 </summary>

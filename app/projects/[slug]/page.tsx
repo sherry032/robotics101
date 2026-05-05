@@ -469,8 +469,8 @@ void loop() {
 };
 
 const difficultyColor: Record<string, string> = {
-  Beginner: "bg-green-100 text-green-700 border-green-200",
-  Intermediate: "bg-yellow-100 text-yellow-700 border-yellow-200",
+  Beginner: "border-accent/30 bg-accent/10 text-accent",
+  Intermediate: "border-secondary/30 bg-secondary/10 text-secondary",
 };
 
 export function generateStaticParams() {
@@ -522,7 +522,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         {/* Wiring */}
         <section className="mb-10">
           <h2 className="text-xl font-bold mb-4">⚡ Wiring Diagram</h2>
-          <pre className="bg-muted/40 border rounded-xl p-5 text-sm overflow-x-auto whitespace-pre-wrap leading-relaxed font-mono">
+          <pre className="overflow-x-auto whitespace-pre-wrap rounded-lg border bg-muted/40 p-5 font-mono text-sm leading-relaxed">
             {project.wiring}
           </pre>
         </section>
@@ -533,7 +533,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           <ol className="space-y-4">
             {project.instructions.map((inst, i) => (
               <li key={i} className="flex gap-4">
-                <div className="w-8 h-8 rounded-full bg-primary text-white font-bold flex items-center justify-center text-sm shrink-0">
+                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary text-sm font-bold text-primary-foreground">
                   {i + 1}
                 </div>
                 <div>
@@ -548,7 +548,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         {/* Code */}
         <section className="mb-10">
           <h2 className="text-xl font-bold mb-4">💻 Code</h2>
-          <pre className="bg-zinc-900 text-zinc-100 rounded-xl p-5 text-xs overflow-x-auto leading-relaxed font-mono">
+          <pre className="overflow-x-auto rounded-lg border border-primary/20 bg-background/80 p-5 font-mono text-xs leading-relaxed text-foreground shadow-inner">
             {project.code}
           </pre>
         </section>
@@ -556,7 +556,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         {/* Testing */}
         <section className="mb-10">
           <h2 className="text-xl font-bold mb-4">🧪 Testing</h2>
-          <div className="bg-muted/30 rounded-xl p-5 border text-sm text-muted-foreground">
+          <div className="rounded-lg border bg-muted/30 p-5 text-sm text-muted-foreground backdrop-blur">
             {project.testing}
           </div>
         </section>
@@ -566,9 +566,9 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           <h2 className="text-xl font-bold mb-4">⚠️ Common Problems</h2>
           <div className="space-y-3">
             {project.problems.map((p, i) => (
-              <div key={i} className="border rounded-xl p-4 bg-orange-50 border-orange-200">
-                <p className="font-semibold text-sm text-orange-800">Problem: {p.issue}</p>
-                <p className="text-sm text-orange-700 mt-1">Fix: {p.fix}</p>
+              <div key={i} className="rounded-lg border border-accent/25 bg-accent/10 p-4">
+                <p className="text-sm font-semibold text-accent">Problem: {p.issue}</p>
+                <p className="mt-1 text-sm text-foreground/80">Fix: {p.fix}</p>
               </div>
             ))}
           </div>

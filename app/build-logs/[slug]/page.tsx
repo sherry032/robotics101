@@ -163,9 +163,9 @@ export default async function BuildLogPage({ params }: { params: Promise<{ slug:
                   <p className="font-semibold text-sm mb-2">What I built:</p>
                   <p className="text-muted-foreground text-sm leading-relaxed whitespace-pre-line">{log.v1.what}</p>
                 </div>
-                <div className="p-4 bg-red-50 border border-red-200 rounded-xl">
-                  <p className="font-semibold text-sm text-red-800 mb-2">❌ What failed:</p>
-                  <p className="text-red-700 text-sm leading-relaxed whitespace-pre-line">{log.v1.failed}</p>
+                <div className="rounded-lg border border-destructive/30 bg-destructive/10 p-4">
+                  <p className="mb-2 text-sm font-semibold text-destructive">❌ What failed:</p>
+                  <p className="text-sm leading-relaxed text-foreground/80 whitespace-pre-line">{log.v1.failed}</p>
                 </div>
               </div>
             </div>
@@ -173,22 +173,22 @@ export default async function BuildLogPage({ params }: { params: Promise<{ slug:
 
           <section>
             <h2 className="text-xl font-bold mb-3">🧪 Testing</h2>
-            <div className="bg-muted/30 rounded-xl p-5 border text-sm text-muted-foreground leading-relaxed">
+            <div className="rounded-lg border bg-muted/30 p-5 text-sm leading-relaxed text-muted-foreground backdrop-blur">
               {log.testing}
             </div>
           </section>
 
           <section>
-            <div className="border-l-4 border-green-400/50 pl-5">
+            <div className="border-l-4 border-accent/50 pl-5">
               <h2 className="text-xl font-bold mb-3">✅ Version 2</h2>
               <div className="space-y-4">
                 <div>
                   <p className="font-semibold text-sm mb-2">What I changed:</p>
                   <p className="text-muted-foreground text-sm leading-relaxed whitespace-pre-line">{log.v2.what}</p>
                 </div>
-                <div className="p-4 bg-green-50 border border-green-200 rounded-xl">
-                  <p className="font-semibold text-sm text-green-800 mb-2">✅ What improved:</p>
-                  <p className="text-green-700 text-sm leading-relaxed">{log.v2.improved}</p>
+                <div className="rounded-lg border border-accent/30 bg-accent/10 p-4">
+                  <p className="mb-2 text-sm font-semibold text-accent">✅ What improved:</p>
+                  <p className="text-sm leading-relaxed text-foreground/80">{log.v2.improved}</p>
                 </div>
               </div>
             </div>
@@ -196,7 +196,7 @@ export default async function BuildLogPage({ params }: { params: Promise<{ slug:
 
           <section>
             <h2 className="text-xl font-bold mb-3">💡 Reflection</h2>
-            <div className="bg-primary/5 border border-primary/20 rounded-xl p-5 text-sm text-foreground/80 leading-relaxed whitespace-pre-line">
+            <div className="rounded-lg border border-primary/20 bg-primary/10 p-5 text-sm leading-relaxed text-foreground/80 whitespace-pre-line">
               {log.reflection}
             </div>
           </section>

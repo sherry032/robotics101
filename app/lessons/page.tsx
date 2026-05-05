@@ -70,8 +70,8 @@ const lessons = [
 ];
 
 const difficultyColor: Record<string, string> = {
-  Beginner: "bg-green-100 text-green-700 border-green-200",
-  Intermediate: "bg-yellow-100 text-yellow-700 border-yellow-200",
+  Beginner: "border-accent/30 bg-accent/10 text-accent",
+  Intermediate: "border-secondary/30 bg-secondary/10 text-secondary",
 };
 
 export default function LessonsPage() {
@@ -92,7 +92,7 @@ export default function LessonsPage() {
         <div className="grid sm:grid-cols-2 gap-4">
           {lessons.map((lesson, i) => (
             <Link key={lesson.slug} href={`/lessons/${lesson.slug}`}>
-              <Card className="h-full hover:shadow-md hover:border-primary/30 transition-all group">
+              <Card className="group h-full hover:-translate-y-1 hover:border-primary/45 hover:shadow-[0_0_34px_color-mix(in_oklab,var(--primary)_18%,transparent)]">
                 <CardHeader className="pb-2">
                   <div className="flex items-start justify-between gap-2">
                     <div className="flex items-center gap-2">
@@ -118,10 +118,10 @@ export default function LessonsPage() {
           ))}
         </div>
 
-        <div className="mt-12 p-6 bg-muted/30 rounded-2xl border text-center">
+        <div className="mt-12 rounded-lg border bg-muted/30 p-6 text-center backdrop-blur">
           <p className="font-semibold mb-2">Not sure where to start?</p>
           <p className="text-sm text-muted-foreground mb-4">
-            Read the Start Here guide — it'll tell you exactly which lesson to do first.
+            Read the Start Here guide — it&apos;ll tell you exactly which lesson to do first.
           </p>
           <Link href="/start-here" className="text-primary text-sm font-medium hover:underline">
             Go to Start Here →

@@ -2,14 +2,14 @@ import Link from "next/link";
 
 export function Footer() {
   return (
-    <footer className="border-t bg-muted/40 mt-auto">
+    <footer className="mt-auto border-t border-primary/15 bg-background/80 backdrop-blur-xl">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 py-10">
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
           <div>
             <div className="flex items-center gap-2 font-bold text-lg mb-3">
-              <span>🤖</span>
-              <span className="text-primary">Robotics</span>
-              <span>101</span>
+              <span className="flex size-7 items-center justify-center rounded-lg border border-primary/35 bg-primary/10">🤖</span>
+              <span className="font-display text-primary">Robotics</span>
+              <span className="font-display">101</span>
             </div>
             <p className="text-sm text-muted-foreground">
               A beginner-friendly guide to getting started in robotics. Learn,
@@ -43,7 +43,7 @@ export function Footer() {
         </div>
 
         <div className="border-t mt-8 pt-6 text-center text-xs text-muted-foreground">
-          © {new Date().getFullYear()} Robotics 101. Made with ❤️ for beginner builders.
+          © {new Date().getFullYear()} Robotics 101. Made for beginner builders.
         </div>
       </div>
     </footer>

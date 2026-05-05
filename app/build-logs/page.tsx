@@ -61,7 +61,7 @@ export default function BuildLogsPage() {
           </p>
         </div>
 
-        <div className="mb-8 p-5 bg-muted/30 rounded-xl border">
+        <div className="mb-8 rounded-lg border bg-muted/30 p-5 backdrop-blur">
           <p className="text-sm font-medium mb-1">📖 What are build logs?</p>
           <p className="text-sm text-muted-foreground">
             A build log documents your design decisions, what went wrong, how
@@ -74,7 +74,7 @@ export default function BuildLogsPage() {
         <div className="space-y-4">
           {logs.map((log) => (
             <Link key={log.slug} href={`/build-logs/${log.slug}`}>
-              <Card className="hover:shadow-md hover:border-primary/30 transition-all group">
+              <Card className="group hover:-translate-y-1 hover:border-primary/45 hover:shadow-[0_0_34px_color-mix(in_oklab,var(--primary)_18%,transparent)]">
                 <CardHeader className="pb-2">
                   <div className="flex items-start justify-between gap-4">
                     <div className="flex items-center gap-3">
