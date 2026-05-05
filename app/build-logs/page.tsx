@@ -1,51 +1,13 @@
 import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { listBuildLogs } from "@/lib/content-db";
 
-const logs = [
-  {
-    slug: "robot-arm-v1",
-    emoji: "🦿",
-    title: "Robot Arm V1: First Build",
-    date: "March 12, 2025",
-    summary: "Built the first version of the robotic arm using cardboard and SG90 servos. The arm worked but collapsed under its own weight.",
-    tags: ["Robotic Arm", "Servos", "Mechanical Design"],
-  },
-  {
-    slug: "servo-failure",
-    emoji: "⚠️",
-    title: "Why My Servo Burned Out",
-    date: "March 18, 2025",
-    summary: "Powered three MG996R servos from Arduino 5V pin. They jittered, then stopped working. Deep dive into why and how to fix it.",
-    tags: ["Debugging", "Power", "Servos"],
-  },
-  {
-    slug: "wheel-testing",
-    emoji: "🛞",
-    title: "Testing 4 Different Wheel Types",
-    date: "March 25, 2025",
-    summary: "Compared rubber, foam, omni, and mecanum wheels for traction, speed, and turning. What I found surprised me.",
-    tags: ["Wheels", "Mechanical", "Testing"],
-  },
-  {
-    slug: "intake-redesign",
-    emoji: "🔄",
-    title: "Redesigning the Intake Mechanism",
-    date: "April 2, 2025",
-    summary: "The V1 claw couldn't reliably grip game pieces. Three redesigns later, here's what finally worked.",
-    tags: ["Claw", "Redesign", "Iteration"],
-  },
-  {
-    slug: "autonomous-debugging",
-    emoji: "🐛",
-    title: "Debugging Autonomous Mode",
-    date: "April 15, 2025",
-    summary: "Robot worked perfectly in testing but failed in competition. The culprit: sensor interference from other robots' IR signals.",
-    tags: ["Autonomous", "Debugging", "Sensors"],
-  },
-];
+export const dynamic = "force-dynamic";
 
-export default function BuildLogsPage() {
+export default async function BuildLogsPage() {
+  const logs = await listBuildLogs();
+
   return (
     <div className="py-12 sm:py-16 px-4 sm:px-6">
       <div className="mx-auto max-w-5xl">

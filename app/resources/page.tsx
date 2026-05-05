@@ -1,67 +1,8 @@
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { getResources } from "@/lib/content-db";
 
-const resources = [
-  {
-    category: "Getting Started",
-    emoji: "🚀",
-    items: [
-      { title: "Arduino Official Documentation", desc: "Complete reference for all Arduino functions, boards, and libraries.", type: "Website", free: true },
-      { title: "Arduino IDE", desc: "The official programming environment for writing and uploading Arduino code.", type: "Software", free: true },
-      { title: "Tinkercad Circuits", desc: "Simulate Arduino circuits in your browser before buying any hardware.", type: "Simulator", free: true },
-    ],
-  },
-  {
-    category: "Learning",
-    emoji: "📖",
-    items: [
-      { title: "Arduino Project Hub", desc: "Thousands of community projects with full instructions.", type: "Website", free: true },
-      { title: "Instructables - Robotics", desc: "Step-by-step guides for beginner to advanced robot projects.", type: "Website", free: true },
-      { title: "Robotics Academy (CMU)", desc: "Free curriculum from Carnegie Mellon for middle and high school students.", type: "Course", free: true },
-      { title: "MIT OpenCourseWare - Robotics", desc: "University-level robotics lectures and materials from MIT.", type: "Course", free: true },
-    ],
-  },
-  {
-    category: "Parts & Kits",
-    emoji: "🛒",
-    items: [
-      { title: "Arduino Starter Kit", desc: "Official Arduino kit with board, components, and project book. Best first purchase.", type: "Kit", free: false },
-      { title: "Elegoo Smart Robot Car Kit", desc: "Complete beginner robot car kit with all parts and instructions (~$35).", type: "Kit", free: false },
-      { title: "Adafruit", desc: "High quality components with excellent documentation. Great for sensors.", type: "Store", free: false },
-      { title: "SparkFun", desc: "Electronics retailer focused on education and hobbyist robotics.", type: "Store", free: false },
-    ],
-  },
-  {
-    category: "Communities",
-    emoji: "👥",
-    items: [
-      { title: "r/robotics", desc: "Subreddit for robotics enthusiasts of all levels. Good for questions.", type: "Community", free: true },
-      { title: "Arduino Forums", desc: "Official Arduino community — best place for code-specific questions.", type: "Forum", free: true },
-      { title: "FIRST Robotics Community", desc: "For students interested in competitive robotics (FRC, FTC, FLL).", type: "Community", free: true },
-      { title: "Hackaday.io", desc: "Project showcase and community for hardware builders.", type: "Community", free: true },
-    ],
-  },
-  {
-    category: "Tools & Software",
-    emoji: "🔧",
-    items: [
-      { title: "Fritzing", desc: "Visual wiring diagram software. Create circuit diagrams to document your projects.", type: "Software", free: true },
-      { title: "KiCad", desc: "Free PCB design software for when you outgrow the breadboard.", type: "Software", free: true },
-      { title: "Fusion 360", desc: "3D CAD software. Free for students and hobbyists. Design robot parts.", type: "Software", free: true },
-      { title: "Serial Monitor (Arduino IDE)", desc: "Built into Arduino IDE. Essential for debugging sensor values.", type: "Built-in", free: true },
-    ],
-  },
-  {
-    category: "Competitions",
-    emoji: "🏆",
-    items: [
-      { title: "FIRST Robotics (FRC)", desc: "High school robotics competition. 6-week build season, regional + national events.", type: "Competition", free: false },
-      { title: "FIRST Tech Challenge (FTC)", desc: "Smaller scale than FRC. Uses Android + REV hardware. Grades 7–12.", type: "Competition", free: false },
-      { title: "VEX Robotics", desc: "Popular competition platform. Multiple divisions from middle school to college.", type: "Competition", free: false },
-      { title: "Science Olympiad", desc: "Includes robotics events alongside other science disciplines.", type: "Competition", free: false },
-    ],
-  },
-];
+export const dynamic = "force-dynamic";
 
 const typeColors: Record<string, string> = {
   Website: "border-primary/30 bg-primary/10 text-primary",
@@ -76,7 +17,9 @@ const typeColors: Record<string, string> = {
   "Built-in": "border-border bg-muted/40 text-muted-foreground",
 };
 
-export default function ResourcesPage() {
+export default async function ResourcesPage() {
+  const resources = await getResources();
+
   return (
     <div className="py-12 sm:py-16 px-4 sm:px-6">
       <div className="mx-auto max-w-5xl">

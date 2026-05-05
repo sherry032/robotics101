@@ -2,54 +2,13 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
+import { getAboutContent } from "@/lib/content-db";
 
-const timeline = [
-  {
-    year: "Age 12",
-    title: "First Arduino",
-    desc: "Got an Arduino Uno for my birthday. Spent three weeks making an LED blink — and loved every frustrating minute of it.",
-  },
-  {
-    year: "Age 14",
-    title: "Joined FTC",
-    desc: "Competed in FIRST Tech Challenge with my school team. We built a robot that could stack rings. We came in 8th. It was incredible.",
-  },
-  {
-    year: "Age 16",
-    title: "Started teaching",
-    desc: "Volunteered to teach a robotics workshop for 5th graders. Realized how hard it was to explain things clearly — and how rewarding it was when something clicked.",
-  },
-  {
-    year: "Age 17",
-    title: "Built this site",
-    desc: "Couldn't find a beginner resource that explained everything end-to-end without assuming prior knowledge. So I built one.",
-  },
-];
+export const dynamic = "force-dynamic";
 
-const values = [
-  {
-    icon: "🧩",
-    title: "Start simple",
-    desc: "Every concept is broken down to its most basic form before adding complexity.",
-  },
-  {
-    icon: "🔧",
-    title: "Build real things",
-    desc: "Theory only sticks when you apply it. Every lesson connects to something you can actually make.",
-  },
-  {
-    icon: "❌",
-    title: "Show the failures",
-    desc: "Real engineering means things break. Build logs show the full process, including what went wrong.",
-  },
-  {
-    icon: "🎯",
-    title: "No assumed knowledge",
-    desc: "If you've never touched a circuit board before, you belong here. We start from zero.",
-  },
-];
+export default async function AboutPage() {
+  const { timeline, values } = await getAboutContent();
 
-export default function AboutPage() {
   return (
     <div>
       {/* Hero */}

@@ -1,35 +1,13 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { getStartHereContent } from "@/lib/content-db";
 
-const parts = [
-  { icon: "🧠", name: "Microcontroller (Arduino)", desc: "The brain of your robot. It reads sensor data and controls the motors based on your code." },
-  { icon: "🔋", name: "Battery / Power", desc: "Powers everything. Most beginners start with AA batteries or a 9V battery pack." },
-  { icon: "⚡", name: "Breadboard", desc: "A tool for connecting components without soldering. Great for testing circuits quickly." },
-  { icon: "⚙️", name: "Motors", desc: "Convert electrical energy into movement. DC motors spin wheels; servos rotate to a specific angle." },
-  { icon: "👁️", name: "Sensors", desc: "Allow robots to detect the world — distance, light, color, and more." },
-  { icon: "🪛", name: "Jumper Wires", desc: "Short wires used to connect components on your breadboard to the Arduino." },
-];
+export const dynamic = "force-dynamic";
 
-const steps = [
-  { step: "1", title: "Learn Robot Parts", desc: "Understand what each component does before buying anything.", link: "/lessons/robot-parts" },
-  { step: "2", title: "Learn Coding Basics", desc: "You don't need to be a programmer — just learn the basics of Arduino code.", link: "/lessons/coding-basics" },
-  { step: "3", title: "Build a Simple Project", desc: "Start with the line-following robot. It's the perfect first build.", link: "/projects/line-following-robot" },
-  { step: "4", title: "Improve Your Designs", desc: "Read your build logs, find what failed, and iterate.", link: "/build-logs" },
-];
+export default async function StartHerePage() {
+  const { parts, steps, checklist } = await getStartHereContent();
 
-const checklist = [
-  "Learn what a motor does",
-  "Learn how a sensor detects things",
-  "Understand what a microcontroller is",
-  "Write your first Arduino program (blink an LED!)",
-  "Build a simple robot project",
-  "Test your robot and find the bugs",
-  "Improve one part of your design",
-  "Document your build with a build log",
-];
-
-export default function StartHerePage() {
   return (
     <div className="py-12 sm:py-16 px-4 sm:px-6">
       <div className="mx-auto max-w-4xl">

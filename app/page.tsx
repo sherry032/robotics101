@@ -2,22 +2,13 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { getHomepageContent } from "@/lib/content-db";
 
-const featuredLessons = [
-  { slug: "what-is-a-robot", title: "What Is a Robot?", emoji: "🤖", time: "5 min" },
-  { slug: "sensors", title: "How Sensors Work", emoji: "👁️", time: "8 min" },
-  { slug: "motors", title: "Motors & Movement", emoji: "⚙️", time: "7 min" },
-  { slug: "coding-basics", title: "Coding Basics", emoji: "💻", time: "10 min" },
-];
+export const dynamic = "force-dynamic";
 
-const stats = [
-  { label: "Lessons", value: "8+" },
-  { label: "Projects", value: "6+" },
-  { label: "Build Logs", value: "5+" },
-  { label: "Difficulty Levels", value: "3" },
-];
+export default async function HomePage() {
+  const { featuredLessons, stats } = await getHomepageContent();
 
-export default function HomePage() {
   return (
     <div>
       {/* Hero */}

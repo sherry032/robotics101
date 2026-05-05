@@ -1,0 +1,1255 @@
+{
+  "homepage": {
+    "featuredLessons": [
+      {
+        "slug": "what-is-a-robot",
+        "title": "What Is a Robot?",
+        "emoji": "🤖",
+        "time": "5 min"
+      },
+      {
+        "slug": "sensors",
+        "title": "How Sensors Work",
+        "emoji": "👁️",
+        "time": "8 min"
+      },
+      {
+        "slug": "motors",
+        "title": "Motors & Movement",
+        "emoji": "⚙️",
+        "time": "7 min"
+      },
+      {
+        "slug": "coding-basics",
+        "title": "Coding Basics",
+        "emoji": "💻",
+        "time": "10 min"
+      }
+    ],
+    "stats": [
+      {
+        "label": "Lessons",
+        "value": "8+"
+      },
+      {
+        "label": "Projects",
+        "value": "6+"
+      },
+      {
+        "label": "Build Logs",
+        "value": "5+"
+      },
+      {
+        "label": "Difficulty Levels",
+        "value": "3"
+      }
+    ]
+  },
+  "lessons": [
+    {
+      "slug": "what-is-a-robot",
+      "order": 1,
+      "desc": "Understand the sense-think-act loop that powers every robot ever built.",
+      "emoji": "🤖",
+      "title": "What Is a Robot?",
+      "time": "5 min",
+      "difficulty": "Beginner",
+      "intro": "A robot is any machine that can sense its environment, make decisions, and take action. That's it. Once you understand this three-part loop, you understand the foundation of all robotics.",
+      "sections": [
+        {
+          "heading": "The Sense → Think → Act Loop",
+          "body": "Every robot — from a tiny Arduino car to a Mars rover — follows the same loop:\n\n1. Sense: Sensors gather information from the environment (distance, color, temperature, light)\n2. Think: A microcontroller (like Arduino) runs code that decides what to do with the data\n3. Act: Motors, servos, or other actuators move the robot in response\n\nThis loop runs hundreds of times per second in most robots."
+        },
+        {
+          "heading": "Real Robotics Example",
+          "body": "Take a line-following robot:\n\n• Sense: Two IR sensors detect whether they're over a black line or white floor\n• Think: Arduino checks sensor values and decides 'turn left', 'go straight', or 'turn right'\n• Act: Two motors adjust speed to steer the robot back onto the line\n\nThat's the entire program. Three steps, running in a loop."
+        },
+        {
+          "heading": "What Makes Something a Robot?",
+          "body": "Not everything with wheels is a robot. A toy car isn't a robot — it just responds to your input. A robot must sense the environment on its own and react autonomously (or semi-autonomously). Autonomy is the key difference."
+        }
+      ],
+      "mistake": "Many beginners think robots need to be complicated. Your first robot can do one simple thing well — that's enough. Don't try to build a humanoid robot on day one.",
+      "quiz": [
+        {
+          "q": "What are the three parts of the robot loop?",
+          "a": "Sense, Think, Act"
+        },
+        {
+          "q": "What component acts as the 'brain' of most beginner robots?",
+          "a": "A microcontroller like Arduino"
+        }
+      ],
+      "related": [
+        {
+          "slug": "robot-parts",
+          "title": "Robot Parts Explained"
+        },
+        {
+          "slug": "sensors",
+          "title": "How Sensors Work"
+        }
+      ]
+    },
+    {
+      "slug": "robot-parts",
+      "order": 2,
+      "desc": "Learn what every component does: Arduino, motors, sensors, wires, and more.",
+      "emoji": "🔩",
+      "title": "Robot Parts Explained",
+      "time": "8 min",
+      "difficulty": "Beginner",
+      "intro": "Before you buy anything, understand what each component does. This lesson covers every major part in a beginner robot kit.",
+      "sections": [
+        {
+          "heading": "The Microcontroller (Arduino)",
+          "body": "Arduino is a small programmable board that acts as your robot's brain. You upload code to it via USB, and it runs that code continuously. It reads sensor data through its input pins and controls motors through its output pins.\n\nThe Arduino Uno is the best starting board — it's well-documented, cheap (~$10), and works with almost every beginner project."
+        },
+        {
+          "heading": "Motors",
+          "body": "There are two types beginners need to know:\n\n• DC Motors: Spin continuously. Used for wheels. You control speed and direction using a motor driver board.\n• Servo Motors: Rotate to a specific angle (0–180°). Used for arms, claws, and steering. Easier to control than DC motors."
+        },
+        {
+          "heading": "Sensors",
+          "body": "Sensors are how your robot perceives the world:\n\n• IR Sensor: Detects black vs. white surfaces. Used in line followers.\n• Ultrasonic Sensor (HC-SR04): Measures distance. Used in obstacle avoidance.\n• Color Sensor (TCS230): Identifies colors.\n• Touch Sensor: Detects physical contact."
+        },
+        {
+          "heading": "The Breadboard",
+          "body": "A breadboard is a plastic board with rows of holes. Components plug in without soldering. It's used during prototyping — you can rewire quickly when something doesn't work. Every beginner should start here before touching a soldering iron."
+        },
+        {
+          "heading": "Power Supply",
+          "body": "Robots need power. A 9V battery or 4xAA pack usually powers the Arduino. Motors draw more current and often need a separate battery. Always check the voltage and current requirements of your components before connecting them."
+        }
+      ],
+      "mistake": "Don't skip the motor driver board. Connecting motors directly to Arduino pins will damage your board — the pins can't handle the current motors need.",
+      "quiz": [
+        {
+          "q": "What does a servo motor do differently from a DC motor?",
+          "a": "A servo rotates to a specific angle instead of spinning continuously"
+        },
+        {
+          "q": "Why use a breadboard instead of soldering?",
+          "a": "It allows quick, damage-free rewiring during prototyping"
+        }
+      ],
+      "related": [
+        {
+          "slug": "motors",
+          "title": "Motors & Movement"
+        },
+        {
+          "slug": "sensors",
+          "title": "How Sensors Work"
+        }
+      ]
+    },
+    {
+      "slug": "motors",
+      "order": 3,
+      "desc": "DC motors, servo motors, and stepper motors — how they work and when to use them.",
+      "emoji": "⚙️",
+      "title": "Motors & Movement",
+      "time": "7 min",
+      "difficulty": "Beginner",
+      "intro": "Motors convert electrical energy into motion. Knowing which motor to use — and how to control it — is one of the most important skills in robotics.",
+      "sections": [
+        {
+          "heading": "DC Motors",
+          "body": "DC motors spin continuously when voltage is applied. Reverse the voltage → motor spins the other way. Control speed with PWM (pulse-width modulation).\n\nYou can't connect a DC motor directly to Arduino — you need a motor driver (like L298N or L293D). The driver handles the higher current and allows direction control from Arduino signals."
+        },
+        {
+          "heading": "Servo Motors",
+          "body": "Servos rotate to a specific angle (0°–180°) and hold that position. They have built-in feedback and a control circuit — no motor driver needed.\n\nControl with Arduino Servo library:\nservo.write(90); // rotate to 90 degrees\n\nPerfect for: arms, claws, steering mechanisms."
+        },
+        {
+          "heading": "Stepper Motors",
+          "body": "Steppers move in precise increments (steps). One full rotation = typically 200 steps. No feedback needed — you just count steps.\n\nUsed in: 3D printers, CNC machines. Overkill for most beginner projects but worth knowing about."
+        },
+        {
+          "heading": "Motor Drivers",
+          "body": "The L298N is the most common beginner motor driver. It controls two DC motors independently. Connect:\n• IN1/IN2 → Arduino digital pins (direction control)\n• ENA → Arduino PWM pin (speed control)\n• Motor A output → Motor terminals\n• 12V → external battery, GND shared with Arduino"
+        }
+      ],
+      "mistake": "Powering motors from the Arduino's 5V pin will immediately cause problems — the motors will pull too much current, resetting or damaging your board. Always power motors from a separate battery through a motor driver.",
+      "quiz": [
+        {
+          "q": "Why do DC motors need a motor driver?",
+          "a": "Motors require more current than Arduino pins can supply"
+        },
+        {
+          "q": "Which motor type is best for a claw that needs to hold a position?",
+          "a": "Servo motor"
+        }
+      ],
+      "related": [
+        {
+          "slug": "robot-parts",
+          "title": "Robot Parts Explained"
+        },
+        {
+          "slug": "coding-basics",
+          "title": "Coding Basics"
+        }
+      ]
+    },
+    {
+      "slug": "sensors",
+      "order": 4,
+      "desc": "Ultrasonic, IR, color, and touch sensors. What they detect and how to wire them.",
+      "emoji": "👁️",
+      "title": "How Sensors Work",
+      "time": "8 min",
+      "difficulty": "Beginner",
+      "intro": "Sensors are the eyes, ears, and touch receptors of your robot. Without sensors, a robot is blind to its environment. This lesson explains the most common beginner sensors and how they connect to Arduino.",
+      "sections": [
+        {
+          "heading": "IR Sensors (Infrared)",
+          "body": "IR sensors emit infrared light and measure how much bounces back. Black surfaces absorb IR; white surfaces reflect it. This is how line-following robots 'see' the line.\n\nWiring: VCC → 5V, GND → GND, OUT → Digital Pin\nCode: digitalRead(pin) returns HIGH (white) or LOW (black)."
+        },
+        {
+          "heading": "Ultrasonic Sensor (HC-SR04)",
+          "body": "Works like sonar. It emits an ultrasonic pulse and measures how long it takes to bounce back. From that time, you calculate distance:\n\ndistance (cm) = duration / 58\n\nWiring: VCC → 5V, GND → GND, TRIG → Digital Pin, ECHO → Digital Pin\nRange: 2cm to 400cm. Accuracy: ±3mm."
+        },
+        {
+          "heading": "Color Sensors (TCS230/TCS3200)",
+          "body": "Shines light onto a surface and measures how much of each color frequency is reflected. Returns raw frequency values that you map to RGB.\n\nUsed in: sorting robots, color-detecting systems. Slightly more complex to calibrate than IR sensors."
+        },
+        {
+          "heading": "Touch / Limit Switches",
+          "body": "The simplest sensor — a button. When pressed, the circuit closes and Arduino reads HIGH. Used as bumper sensors to detect collisions.\n\nWiring: One leg → Digital Pin + pull-up resistor (10kΩ), other leg → GND."
+        }
+      ],
+      "mistake": "IR sensors are affected by ambient light. Bright sunlight or fluorescent lighting can cause false readings. Test your robot in the same lighting conditions you'll use it in.",
+      "quiz": [
+        {
+          "q": "What formula converts ultrasonic pulse duration to distance in cm?",
+          "a": "distance = duration / 58"
+        },
+        {
+          "q": "Why might an IR line sensor fail outdoors?",
+          "a": "Bright sunlight interferes with IR readings"
+        }
+      ],
+      "related": [
+        {
+          "slug": "what-is-a-robot",
+          "title": "What Is a Robot?"
+        },
+        {
+          "slug": "coding-basics",
+          "title": "Coding Basics"
+        }
+      ]
+    },
+    {
+      "slug": "coding-basics",
+      "order": 5,
+      "desc": "Variables, loops, conditions, and functions — just enough code to control a robot.",
+      "emoji": "💻",
+      "title": "Coding Basics for Robots",
+      "time": "10 min",
+      "difficulty": "Beginner",
+      "intro": "You don't need to be a programmer to control a robot. You need four concepts: variables, conditions, loops, and functions. That's it.",
+      "sections": [
+        {
+          "heading": "Variables",
+          "body": "Variables store values your program uses:\n\nint speed = 150;        // motor speed (0-255)\nint sensorPin = 7;      // which Arduino pin the sensor uses\nbool lineDetected = false;\n\nAlways name variables something meaningful. 'x' is a bad variable name. 'leftSensorValue' is a good one."
+        },
+        {
+          "heading": "Conditions (if/else)",
+          "body": "Conditions make decisions:\n\nif (sensorValue < 500) {\n  // line detected — turn left\n  leftMotor(50);\n  rightMotor(150);\n} else {\n  // no line — go straight\n  leftMotor(150);\n  rightMotor(150);\n}\n\nThis is the core of most robot programs."
+        },
+        {
+          "heading": "Loops",
+          "body": "The loop() function in Arduino runs forever:\n\nvoid loop() {\n  int sensorValue = analogRead(A0);\n  if (sensorValue < 500) { turn(); }\n  else { goStraight(); }\n}\n\nYou don't write the loop yourself — Arduino calls this function repeatedly, hundreds of times per second."
+        },
+        {
+          "heading": "Functions",
+          "body": "Functions group code into reusable blocks:\n\nvoid goForward() {\n  digitalWrite(IN1, HIGH);\n  digitalWrite(IN2, LOW);\n  analogWrite(ENA, 150);\n}\n\nNow instead of writing 3 lines every time you want to go forward, you just call goForward()."
+        }
+      ],
+      "mistake": "Beginners often forget to call delay() between sensor readings. Without small delays, the Arduino reads so fast it can't process accurately. Add delay(10) to delay(50) in your loop if readings seem erratic.",
+      "quiz": [
+        {
+          "q": "What does the loop() function do in Arduino?",
+          "a": "It runs continuously, over and over, forever"
+        },
+        {
+          "q": "What keyword creates a decision in your code?",
+          "a": "if"
+        }
+      ],
+      "related": [
+        {
+          "slug": "motors",
+          "title": "Motors & Movement"
+        },
+        {
+          "slug": "sensors",
+          "title": "How Sensors Work"
+        }
+      ]
+    },
+    {
+      "slug": "mechanical-design",
+      "order": 6,
+      "desc": "How robot bodies are designed: chassis, wheels, arms, and structural stability.",
+      "emoji": "📐",
+      "title": "Mechanical Design",
+      "time": "7 min",
+      "difficulty": "Intermediate",
+      "intro": "The physical structure of your robot matters as much as the code. A poorly designed chassis will cause failures that no amount of software can fix.",
+      "sections": [
+        {
+          "heading": "Chassis Basics",
+          "body": "The chassis is your robot's frame. For beginners, acrylic or wood sheets work well — easy to cut and drill. Consider: weight distribution (keep heavy parts like batteries low), wheelbase width (wider = more stable), and mounting holes for components."
+        },
+        {
+          "heading": "Wheel and Drive Configurations",
+          "body": "• 2WD (two-wheel drive): Two drive wheels + one caster. Simple, common for beginners.\n• 4WD: Four motors, more torque, better off-road. More complex.\n• Tank drive: Two independently controlled tracks. Turns in place. Great for tight spaces."
+        },
+        {
+          "heading": "Center of Gravity",
+          "body": "A high center of gravity causes tipping on turns. Place heavy components (battery, electronics) as low as possible. A robot that tips over every time it turns is a mechanical design problem — not a code problem."
+        }
+      ],
+      "mistake": "Don't over-engineer your first chassis. A flat acrylic sheet with motors zip-tied on works fine for a first project. Add complexity only when the simple version fails for a specific reason.",
+      "quiz": [
+        {
+          "q": "What is the most stable drive configuration for a beginner robot?",
+          "a": "2WD with a caster wheel"
+        }
+      ],
+      "related": [
+        {
+          "slug": "engineering-process",
+          "title": "The Engineering Process"
+        },
+        {
+          "slug": "common-mistakes",
+          "title": "Common Beginner Mistakes"
+        }
+      ]
+    },
+    {
+      "slug": "engineering-process",
+      "order": 7,
+      "desc": "Design, build, test, improve. The cycle that all engineers use to solve problems.",
+      "emoji": "🔄",
+      "title": "The Engineering Process",
+      "time": "6 min",
+      "difficulty": "Beginner",
+      "intro": "Professional engineers don't build things perfectly the first time. They follow a process: design, build, test, improve. Understanding this cycle changes how you think about your projects.",
+      "sections": [
+        {
+          "heading": "Design",
+          "body": "Before touching hardware: sketch your design on paper. List all components. Write out the logic in plain English before writing code. Ask: what is the robot supposed to do? How will it know when it's done? What can go wrong?"
+        },
+        {
+          "heading": "Build",
+          "body": "Build iteratively — one small piece at a time. Don't assemble everything and then test. Test each subsystem (sensors, motors, code) separately before putting it all together. This makes bugs much easier to find."
+        },
+        {
+          "heading": "Test",
+          "body": "Test in the actual environment you'll use the robot in. A line-follower that works on your desk may fail on a different surface. Document what works and what doesn't — this is your build log."
+        },
+        {
+          "heading": "Improve",
+          "body": "Find the biggest problem and fix that one thing. Don't try to fix everything at once. After each improvement, test again. Keep a list of known issues in priority order."
+        }
+      ],
+      "mistake": "Skipping the design phase and going straight to building is the #1 cause of wasted time. 15 minutes of planning saves 2 hours of debugging.",
+      "quiz": [
+        {
+          "q": "What is the correct order of the engineering process?",
+          "a": "Design → Build → Test → Improve"
+        }
+      ],
+      "related": [
+        {
+          "slug": "common-mistakes",
+          "title": "Common Beginner Mistakes"
+        },
+        {
+          "slug": "mechanical-design",
+          "title": "Mechanical Design"
+        }
+      ]
+    },
+    {
+      "slug": "common-mistakes",
+      "order": 8,
+      "desc": "The most frequent mistakes new builders make — and how to avoid them.",
+      "emoji": "⚠️",
+      "title": "Common Beginner Mistakes",
+      "time": "6 min",
+      "difficulty": "Beginner",
+      "intro": "Everyone makes these mistakes. Knowing them in advance saves hours of debugging.",
+      "sections": [
+        {
+          "heading": "Powering Motors from Arduino Pins",
+          "body": "Arduino GPIO pins can only supply ~40mA. DC motors draw 200–500mA. Connect a motor directly and you'll damage the pin — or the whole board. Always use a motor driver like the L298N."
+        },
+        {
+          "heading": "Wrong Voltage for Sensors",
+          "body": "Most sensors run at 5V, but some (like many color sensors) run at 3.3V. Check the datasheet. Connecting a 3.3V sensor to 5V can damage it permanently."
+        },
+        {
+          "heading": "No Common Ground",
+          "body": "If your motors use a separate battery, connect the grounds (GND) of both batteries together. Without a common ground, the motor driver can't communicate properly with Arduino."
+        },
+        {
+          "heading": "Testing on the Wrong Surface",
+          "body": "An IR line sensor calibrated on printer paper will fail on tape. Always test in your actual environment. Recalibrate sensors when you change surfaces or lighting."
+        },
+        {
+          "heading": "Building Everything Before Testing Anything",
+          "body": "Build and test one subsystem at a time. Test sensors. Then test motors. Then integrate. When everything breaks at once, you won't know where to start debugging."
+        }
+      ],
+      "mistake": "The biggest mistake of all: giving up after one failure. Every failure is data. Read the error, understand why it happened, fix it, and move on.",
+      "quiz": [
+        {
+          "q": "What component do you need between Arduino and DC motors?",
+          "a": "A motor driver (like L298N)"
+        },
+        {
+          "q": "Why must two batteries in a robot share a ground connection?",
+          "a": "Without common ground, the circuits can't communicate properly"
+        }
+      ],
+      "related": [
+        {
+          "slug": "robot-parts",
+          "title": "Robot Parts Explained"
+        },
+        {
+          "slug": "engineering-process",
+          "title": "The Engineering Process"
+        }
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "slug": "line-following-robot",
+      "level": "Beginner",
+      "groupOrder": 0,
+      "itemOrder": 0,
+      "shortDesc": "Build a robot that follows a black line using two IR sensors and an Arduino.",
+      "listTime": "2–3 hrs",
+      "listCost": "$25–35",
+      "emoji": "🚗",
+      "title": "Line-Following Robot",
+      "difficulty": "Beginner",
+      "time": "2–3 hours",
+      "cost": "$25–35",
+      "overview": "Build a robot that follows a black line on a white surface using two IR sensors. This is the classic first robot project — it teaches you sensors, motors, motor drivers, and basic Arduino logic all at once.",
+      "materials": [
+        "Arduino Uno",
+        "L298N Motor Driver",
+        "2x DC Motors with wheels",
+        "2x IR Obstacle Sensor Modules",
+        "Robot chassis (2WD kit)",
+        "Caster wheel",
+        "9V battery + battery clip",
+        "4x AA battery holder (for motors)",
+        "Jumper wires",
+        "Breadboard (optional)"
+      ],
+      "wiring": "IR Sensors:\nLeft sensor  → VCC: 5V | GND: GND | OUT: Pin 7\nRight sensor → VCC: 5V | GND: GND | OUT: Pin 8\n\nL298N Motor Driver:\nIN1 → Pin 2  |  IN2 → Pin 3  (Left motor direction)\nIN3 → Pin 4  |  IN4 → Pin 5  (Right motor direction)\nENA → Pin 9 (PWM)  |  ENB → Pin 10 (PWM)\n12V → 4xAA battery pack\nGND → GND shared with Arduino\nMotor A output → Left motor\nMotor B output → Right motor",
+      "instructions": [
+        {
+          "step": "Assemble the chassis",
+          "detail": "Mount the motors onto the chassis frame. Attach wheels to motors. Screw in the caster wheel at the front."
+        },
+        {
+          "step": "Mount electronics",
+          "detail": "Attach Arduino and L298N motor driver to the chassis. Use double-sided tape or standoffs. Keep wires tidy."
+        },
+        {
+          "step": "Wire the motor driver",
+          "detail": "Connect the L298N to Arduino following the wiring diagram above. Double-check IN1–IN4 pins before powering on."
+        },
+        {
+          "step": "Mount and wire IR sensors",
+          "detail": "Position sensors 1–2cm from the ground at the front of the robot, spaced about 3cm apart centered on the robot's axis."
+        },
+        {
+          "step": "Upload the code",
+          "detail": "Copy the code below into Arduino IDE. Select Board: Arduino Uno. Select the correct COM port. Click Upload."
+        },
+        {
+          "step": "Make a track",
+          "detail": "Use 2cm-wide black electrical tape on white cardboard or poster board. Create a loop with gentle curves."
+        },
+        {
+          "step": "Test and calibrate",
+          "detail": "Place the robot on the line. Power it on. Adjust the potentiometer on the IR sensors until each sensor reliably detects the line."
+        }
+      ],
+      "code": "// Line Following Robot\n// IR sensors: LOW = black line detected, HIGH = white surface\n\nconst int LEFT_SENSOR = 7;\nconst int RIGHT_SENSOR = 8;\nconst int IN1 = 2, IN2 = 3; // Left motor\nconst int IN3 = 4, IN4 = 5; // Right motor\nconst int ENA = 9, ENB = 10;\nconst int BASE_SPEED = 150;\n\nvoid setup() {\n  pinMode(LEFT_SENSOR, INPUT);\n  pinMode(RIGHT_SENSOR, INPUT);\n  pinMode(IN1, OUTPUT); pinMode(IN2, OUTPUT);\n  pinMode(IN3, OUTPUT); pinMode(IN4, OUTPUT);\n  pinMode(ENA, OUTPUT); pinMode(ENB, OUTPUT);\n}\n\nvoid setMotors(int left, int right) {\n  digitalWrite(IN1, left > 0 ? HIGH : LOW);\n  digitalWrite(IN2, left > 0 ? LOW : HIGH);\n  analogWrite(ENA, abs(left));\n  digitalWrite(IN3, right > 0 ? HIGH : LOW);\n  digitalWrite(IN4, right > 0 ? LOW : HIGH);\n  analogWrite(ENB, abs(right));\n}\n\nvoid loop() {\n  bool leftLine = !digitalRead(LEFT_SENSOR);\n  bool rightLine = !digitalRead(RIGHT_SENSOR);\n\n  if (leftLine && rightLine) {\n    setMotors(BASE_SPEED, BASE_SPEED); // Go straight\n  } else if (leftLine && !rightLine) {\n    setMotors(BASE_SPEED / 2, BASE_SPEED); // Veer right\n  } else if (!leftLine && rightLine) {\n    setMotors(BASE_SPEED, BASE_SPEED / 2); // Veer left\n  } else {\n    setMotors(0, 0); // Lost line, stop\n  }\n  delay(10);\n}",
+      "testing": "Place the robot at the start of the track. Both sensors should be over the line. Power on and observe. The robot should stay on the line through curves. If it oscillates wildly, reduce BASE_SPEED. If it can't follow tight curves, slow down further.",
+      "problems": [
+        {
+          "issue": "Robot doesn't move at all",
+          "fix": "Check that IN1–IN4 wires are connected. Check that 4xAA battery is connected to L298N 12V input."
+        },
+        {
+          "issue": "Robot spins in circles",
+          "fix": "One motor wired backwards. Swap the two wires going into that motor terminal on the L298N."
+        },
+        {
+          "issue": "Robot ignores the line",
+          "fix": "IR sensor threshold wrong. Adjust the small potentiometer on each sensor module with a screwdriver."
+        },
+        {
+          "issue": "Robot falls off on curves",
+          "fix": "Speed too high or sensor spacing too wide. Reduce BASE_SPEED and move sensors closer together."
+        }
+      ],
+      "improvements": [
+        "Add a third center sensor for better straight-line tracking",
+        "Implement PID control for smoother, faster line following",
+        "Add an LCD display showing sensor values for easier debugging",
+        "Make the robot stop when it completes a full lap"
+      ]
+    },
+    {
+      "slug": "obstacle-avoidance-robot",
+      "level": "Beginner",
+      "groupOrder": 0,
+      "itemOrder": 1,
+      "shortDesc": "A robot that detects walls and objects with an ultrasonic sensor and steers around them.",
+      "listTime": "3–4 hrs",
+      "listCost": "$30–40",
+      "emoji": "🏎️",
+      "title": "Obstacle Avoidance Robot",
+      "difficulty": "Beginner",
+      "time": "3–4 hours",
+      "cost": "$30–40",
+      "overview": "Build a robot that detects walls and objects using an ultrasonic sensor and automatically steers away from them. A great second project after the line follower.",
+      "materials": [
+        "Arduino Uno",
+        "L298N Motor Driver",
+        "2x DC Motors with wheels",
+        "HC-SR04 Ultrasonic Sensor",
+        "Servo Motor (for sensor pan)",
+        "Robot chassis (2WD kit)",
+        "Caster wheel",
+        "9V battery + 4xAA battery pack",
+        "Jumper wires"
+      ],
+      "wiring": "HC-SR04 Ultrasonic:\nTRIG → Pin 11 | ECHO → Pin 12\nVCC → 5V | GND → GND\n\nServo:\nSignal → Pin 6\nVCC → 5V | GND → GND\n\nMotor Driver same as line follower project.",
+      "instructions": [
+        {
+          "step": "Build chassis",
+          "detail": "Same as the line follower. Mount motors, wheels, and caster wheel."
+        },
+        {
+          "step": "Mount servo on front",
+          "detail": "Attach servo to the front of the chassis. Mount the ultrasonic sensor on the servo horn so it can pan left and right."
+        },
+        {
+          "step": "Wire everything",
+          "detail": "Follow the wiring diagram. The servo pans the ultrasonic sensor to look left and right before deciding which way to turn."
+        },
+        {
+          "step": "Upload code",
+          "detail": "Upload the sketch below. The robot scans left and right when it detects an obstacle, then turns toward the clearer direction."
+        },
+        {
+          "step": "Test in open space",
+          "detail": "Place the robot on the floor and let it roam. Watch for correct avoidance behavior."
+        }
+      ],
+      "code": "#include <Servo.h>\n\nconst int TRIG = 11, ECHO = 12;\nconst int IN1 = 2, IN2 = 3, IN3 = 4, IN4 = 5;\nconst int ENA = 9, ENB = 10;\nconst int SERVO_PIN = 6;\nconst int STOP_DISTANCE = 20; // cm\n\nServo panServo;\n\nlong getDistance() {\n  digitalWrite(TRIG, LOW); delayMicroseconds(2);\n  digitalWrite(TRIG, HIGH); delayMicroseconds(10);\n  digitalWrite(TRIG, LOW);\n  return pulseIn(ECHO, HIGH) / 58;\n}\n\nvoid setMotors(int l, int r) {\n  digitalWrite(IN1, l > 0); digitalWrite(IN2, l < 0);\n  analogWrite(ENA, abs(l));\n  digitalWrite(IN3, r > 0); digitalWrite(IN4, r < 0);\n  analogWrite(ENB, abs(r));\n}\n\nvoid setup() {\n  pinMode(TRIG, OUTPUT); pinMode(ECHO, INPUT);\n  pinMode(IN1,OUTPUT); pinMode(IN2,OUTPUT);\n  pinMode(IN3,OUTPUT); pinMode(IN4,OUTPUT);\n  panServo.attach(SERVO_PIN);\n  panServo.write(90); delay(500);\n}\n\nvoid loop() {\n  long dist = getDistance();\n  if (dist > STOP_DISTANCE) {\n    setMotors(150, 150); // Go forward\n  } else {\n    setMotors(0, 0); delay(300);\n    panServo.write(0); delay(400);\n    long leftDist = getDistance();\n    panServo.write(180); delay(400);\n    long rightDist = getDistance();\n    panServo.write(90); delay(400);\n    if (leftDist > rightDist) setMotors(-150, 150); // Turn left\n    else setMotors(150, -150); // Turn right\n    delay(400);\n  }\n  delay(50);\n}",
+      "testing": "Place the robot in a corridor or room. It should drive forward, stop before walls, scan left and right, then turn toward the open direction.",
+      "problems": [
+        {
+          "issue": "Robot doesn't stop in time",
+          "fix": "Increase STOP_DISTANCE constant. Check that ECHO pin is receiving signal."
+        },
+        {
+          "issue": "Distance readings are erratic",
+          "fix": "Add small capacitor (100µF) across HC-SR04 power pins. Ensure solid GND connection."
+        },
+        {
+          "issue": "Robot keeps turning one way only",
+          "fix": "Check panServo wiring. Verify servo reaches full 0° and 180° positions."
+        }
+      ],
+      "improvements": [
+        "Add three sensors (left, front, right) for better spatial awareness",
+        "Implement smoother turns instead of full stops",
+        "Log obstacle data to Serial Monitor for mapping"
+      ]
+    },
+    {
+      "slug": "simple-claw",
+      "level": "Beginner",
+      "groupOrder": 0,
+      "itemOrder": 2,
+      "shortDesc": "Design and build a servo-powered claw that can open and close to pick up small objects.",
+      "listTime": "1–2 hrs",
+      "listCost": "$10–15",
+      "emoji": "🦾",
+      "title": "Simple Claw Mechanism",
+      "difficulty": "Beginner",
+      "time": "1–2 hours",
+      "cost": "$10–15",
+      "overview": "Build a servo-powered claw controlled by a button. Great first servo project that teaches mechanical linkages and basic input/output.",
+      "materials": [
+        "Arduino Uno",
+        "1x Servo Motor (SG90)",
+        "2x Push buttons",
+        "2x 10kΩ resistors",
+        "Popsicle sticks or cardboard (for claw structure)",
+        "Hot glue gun",
+        "Jumper wires"
+      ],
+      "wiring": "Servo: Signal→Pin 9, VCC→5V, GND→GND\nButton 1 (open): Pin 4 with 10kΩ pull-up to 5V\nButton 2 (close): Pin 5 with 10kΩ pull-up to 5V",
+      "instructions": [
+        {
+          "step": "Build claw from sticks",
+          "detail": "Cut popsicle sticks to make two claw fingers hinged at a central pivot. Attach servo horn to move both fingers together."
+        },
+        {
+          "step": "Mount servo",
+          "detail": "Glue servo to base. Attach claw assembly to servo horn."
+        },
+        {
+          "step": "Wire buttons",
+          "detail": "Each button connects Pin → button → GND, with 10kΩ resistor from Pin to 5V (pull-up)."
+        },
+        {
+          "step": "Test",
+          "detail": "Open button opens claw (servo to 90°). Close button closes claw (servo to 0°)."
+        }
+      ],
+      "code": "#include <Servo.h>\n\nServo claw;\nconst int BTN_OPEN = 4;\nconst int BTN_CLOSE = 5;\n\nvoid setup() {\n  claw.attach(9);\n  pinMode(BTN_OPEN, INPUT_PULLUP);\n  pinMode(BTN_CLOSE, INPUT_PULLUP);\n  claw.write(90);\n}\n\nvoid loop() {\n  if (!digitalRead(BTN_OPEN)) {\n    claw.write(90); // Open\n  }\n  if (!digitalRead(BTN_CLOSE)) {\n    claw.write(0); // Closed\n  }\n  delay(20);\n}",
+      "testing": "Press open button — claw opens. Press close button — claw grips. Try picking up a small lightweight object.",
+      "problems": [
+        {
+          "issue": "Servo jitters when idle",
+          "fix": "Add delay(20) in loop. Ensure power supply is stable."
+        },
+        {
+          "issue": "Claw too weak to grip",
+          "fix": "Use MG90S instead of SG90 for more torque. Reduce claw arm length."
+        }
+      ],
+      "improvements": [
+        "Add a potentiometer for variable grip strength",
+        "Mount claw on a robot arm",
+        "Add force sensor to detect when grip is firm"
+      ]
+    },
+    {
+      "slug": "robotic-arm",
+      "level": "Intermediate",
+      "groupOrder": 1,
+      "itemOrder": 0,
+      "shortDesc": "Build a joystick-controlled robotic arm with three servo joints and a claw end effector.",
+      "listTime": "5–8 hrs",
+      "listCost": "$40–60",
+      "emoji": "🦿",
+      "title": "3-DOF Robotic Arm",
+      "difficulty": "Intermediate",
+      "time": "5–8 hours",
+      "cost": "$40–60",
+      "overview": "Build a three-joint robotic arm controlled by potentiometers (joysticks). This project teaches you servo control, kinematics basics, and multi-servo coordination.",
+      "materials": [
+        "Arduino Uno",
+        "3x Servo Motors (MG996R recommended)",
+        "3x 10kΩ Potentiometers",
+        "1x Servo for claw",
+        "Wooden or acrylic arm pieces",
+        "Screws and nuts",
+        "5V 3A external power supply (for servos)",
+        "Jumper wires"
+      ],
+      "wiring": "Servos: Signal wires → Pins 3, 5, 6, 9\nAll servo VCC → External 5V power supply\nAll servo GND → Common ground with Arduino\n\nPotentiometers:\nPot 1 → A0 | Pot 2 → A1 | Pot 3 → A2 | Pot 4 → A3\nEach: left pin → GND, right pin → 5V, middle wiper → analog pin",
+      "instructions": [
+        {
+          "step": "Cut arm pieces",
+          "detail": "Cut base, upper arm, forearm, and claw bracket from 3mm acrylic or 6mm plywood. Drill holes for servo horns and bolts."
+        },
+        {
+          "step": "Assemble joints",
+          "detail": "Attach servos at each joint using screws. The servo horn connects to the next arm segment."
+        },
+        {
+          "step": "Wire servos to external power",
+          "detail": "Never power high-torque servos from Arduino 5V — it will reset or damage the board. Use an external 5V/3A supply."
+        },
+        {
+          "step": "Wire potentiometers",
+          "detail": "Mount three pots on a control panel. Wire following diagram above."
+        },
+        {
+          "step": "Upload and tune",
+          "detail": "Upload code. Test each joint separately. Adjust the map() ranges to limit joint travel within safe mechanical limits."
+        }
+      ],
+      "code": "#include <Servo.h>\n\nServo base, shoulder, elbow, claw;\nconst int POTS[] = {A0, A1, A2, A3};\n\nvoid setup() {\n  base.attach(3);\n  shoulder.attach(5);\n  elbow.attach(6);\n  claw.attach(9);\n}\n\nvoid loop() {\n  base.write(map(analogRead(A0), 0, 1023, 0, 180));\n  shoulder.write(map(analogRead(A1), 0, 1023, 30, 150));\n  elbow.write(map(analogRead(A2), 0, 1023, 0, 180));\n  claw.write(map(analogRead(A3), 0, 1023, 0, 60));\n  delay(15);\n}",
+      "testing": "Test each servo with its potentiometer separately before connecting all four. Watch for mechanical binding at joint limits.",
+      "problems": [
+        {
+          "issue": "Servos jitter",
+          "fix": "Add 100µF capacitors across servo power lines. Ensure solid power supply — USB power is insufficient for multiple servos."
+        },
+        {
+          "issue": "Arm drops under weight",
+          "fix": "Use higher torque servos (MG996R instead of SG90). Add counterweights to the arm."
+        }
+      ],
+      "improvements": [
+        "Record and play back movement sequences",
+        "Add inverse kinematics for XYZ coordinate control",
+        "Replace potentiometers with a PS2 controller"
+      ]
+    },
+    {
+      "slug": "plant-watering-robot",
+      "level": "Intermediate",
+      "groupOrder": 1,
+      "itemOrder": 1,
+      "shortDesc": "A sensor-driven system that checks soil moisture and waters your plant automatically.",
+      "listTime": "3–4 hrs",
+      "listCost": "$20–30",
+      "emoji": "🌱",
+      "title": "Automatic Plant Waterer",
+      "difficulty": "Intermediate",
+      "time": "3–4 hours",
+      "cost": "$20–30",
+      "overview": "Build a system that monitors soil moisture and automatically waters your plant when it gets too dry. Combines analog sensors, thresholds, and a pump relay.",
+      "materials": [
+        "Arduino Uno",
+        "Soil moisture sensor",
+        "5V relay module",
+        "Small water pump (5V submersible)",
+        "Silicone tubing",
+        "Small water reservoir (bottle/container)",
+        "9V battery",
+        "Jumper wires"
+      ],
+      "wiring": "Soil Sensor: VCC→5V, GND→GND, AOUT→A0\nRelay: VCC→5V, GND→GND, IN→Pin 7\nPump: connects through relay NO and COM terminals",
+      "instructions": [
+        {
+          "step": "Set up soil sensor",
+          "detail": "Insert probes into soil. Connect to Arduino A0."
+        },
+        {
+          "step": "Wire relay",
+          "detail": "Connect relay IN pin to Arduino Pin 7. Connect pump through relay NO terminal."
+        },
+        {
+          "step": "Set up pump and tubing",
+          "detail": "Place pump in water reservoir. Run tubing to plant pot."
+        },
+        {
+          "step": "Upload code and calibrate",
+          "detail": "Read sensor values on Serial Monitor. Set DRY_THRESHOLD to the value at which you want watering to trigger."
+        }
+      ],
+      "code": "const int MOISTURE_PIN = A0;\nconst int RELAY_PIN = 7;\nconst int DRY_THRESHOLD = 400; // calibrate this\nconst int WATER_DURATION = 3000; // 3 seconds\n\nvoid setup() {\n  pinMode(RELAY_PIN, OUTPUT);\n  digitalWrite(RELAY_PIN, HIGH); // Relay off (active low)\n  Serial.begin(9600);\n}\n\nvoid loop() {\n  int moisture = analogRead(MOISTURE_PIN);\n  Serial.println(moisture);\n\n  if (moisture < DRY_THRESHOLD) {\n    digitalWrite(RELAY_PIN, LOW); // Pump on\n    delay(WATER_DURATION);\n    digitalWrite(RELAY_PIN, HIGH); // Pump off\n    delay(60000); // Wait 1 min before checking again\n  }\n  delay(5000); // Check every 5 seconds\n}",
+      "testing": "Check Serial Monitor to see live moisture values. Pour dry soil vs. wet soil to verify sensor response.",
+      "problems": [
+        {
+          "issue": "Pump doesn't turn on",
+          "fix": "Check relay wiring. Verify relay LED lights when Pin 7 is LOW."
+        },
+        {
+          "issue": "Sensor gives unstable readings",
+          "fix": "Add delay(100) after analogRead. Ensure solid GND connection."
+        }
+      ],
+      "improvements": [
+        "Add an LCD to display moisture level",
+        "Log data to SD card over time",
+        "Add WiFi (ESP8266) to send moisture alerts to phone"
+      ]
+    },
+    {
+      "slug": "trash-sorter",
+      "level": "Real World",
+      "groupOrder": 2,
+      "itemOrder": 0,
+      "shortDesc": "Uses a color sensor to identify recyclable vs. non-recyclable items and sort them into bins.",
+      "listTime": "6–10 hrs",
+      "listCost": "$50–80",
+      "emoji": "♻️",
+      "title": "Trash Sorting Robot",
+      "difficulty": "Intermediate",
+      "time": "6–10 hours",
+      "cost": "$50–80",
+      "overview": "Uses a color sensor to identify recyclable (blue bin) vs. non-recyclable (black bin) items, then routes them with a servo-controlled gate.",
+      "materials": [
+        "Arduino Uno",
+        "TCS3200 Color Sensor",
+        "2x Servo Motors",
+        "Cardboard or acrylic for bins and chute",
+        "Small DC motor + driver (for conveyor)",
+        "9V battery",
+        "Jumper wires"
+      ],
+      "wiring": "TCS3200: S0→4, S1→5, S2→6, S3→7, OUT→8\nVCC→5V, GND→GND\nGate servo→Pin 9 | Conveyor servo→Pin 10",
+      "instructions": [
+        {
+          "step": "Build the frame",
+          "detail": "Create a chute from cardboard or acrylic. Object enters top, gate below routes to correct bin."
+        },
+        {
+          "step": "Calibrate color sensor",
+          "detail": "Hold known-color objects in front of sensor. Record frequency values for each color in Serial Monitor."
+        },
+        {
+          "step": "Build gate mechanism",
+          "detail": "Servo-powered flap divides output chute to left or right bin."
+        },
+        {
+          "step": "Program and test",
+          "detail": "Start with just two colors. Add more as you calibrate."
+        }
+      ],
+      "code": "// Simplified color detection\nconst int S0=4, S1=5, S2=6, S3=7, OUT=8;\nconst int GATE=9;\n#include <Servo.h>\nServo gate;\n\nint readColor(int s2val, int s3val) {\n  digitalWrite(S2, s2val); digitalWrite(S3, s3val);\n  return pulseIn(OUT, LOW);\n}\n\nvoid setup() {\n  pinMode(S0,OUTPUT); pinMode(S1,OUTPUT);\n  pinMode(S2,OUTPUT); pinMode(S3,OUTPUT);\n  pinMode(OUT, INPUT);\n  digitalWrite(S0,HIGH); digitalWrite(S1,HIGH);\n  gate.attach(GATE);\n  Serial.begin(9600);\n}\n\nvoid loop() {\n  int red = readColor(LOW, LOW);\n  int blue = readColor(LOW, HIGH);\n  Serial.print(\"R:\"); Serial.print(red);\n  Serial.print(\" B:\"); Serial.println(blue);\n  // Lower value = more of that color reflected\n  if (blue < red) gate.write(45); // Recyclable bin\n  else gate.write(135); // Trash bin\n  delay(200);\n}",
+      "testing": "Hold blue paper and measure readings. Hold other colors. Set thresholds between values.",
+      "problems": [
+        {
+          "issue": "Sensor can't distinguish colors",
+          "fix": "Improve lighting — use a bright white LED pointed at detection area. Shield from ambient light."
+        },
+        {
+          "issue": "Gate doesn't hold position",
+          "fix": "Upgrade to MG996R servo."
+        }
+      ],
+      "improvements": [
+        "Add a conveyor belt to automate item feeding",
+        "Expand to 4+ color categories",
+        "Add weight sensor to verify sorted items"
+      ]
+    }
+  ],
+  "buildLogs": [
+    {
+      "slug": "robot-arm-v1",
+      "order": 1,
+      "summary": "Built the first version of the robotic arm using cardboard and SG90 servos. The arm worked but collapsed under its own weight.",
+      "emoji": "🦿",
+      "title": "Robot Arm V1: First Build",
+      "date": "March 12, 2025",
+      "tags": [
+        "Robotic Arm",
+        "Servos",
+        "Mechanical Design"
+      ],
+      "goal": "Build a 3-DOF robotic arm that can pick up small objects from a table and place them into a box.",
+      "problem": "I had four SG90 servo motors and a pile of cardboard. The challenge: cardboard isn't very rigid, and SG90s only produce 1.8 kg/cm of torque. I needed to figure out if this was enough to hold the arm's weight.",
+      "v1": {
+        "what": "Cut arm segments from thick cardboard. Hot-glued servo horns to each joint. Wired all four servos to Arduino pins. Powered everything from the Arduino's 5V pin. Wrote a simple potentiometer-controlled test sketch.",
+        "failed": "The arm worked for about 30 seconds. Then:\n\n1. The cardboard joints flexed under load — the arm drooped instead of holding position\n2. With all four servos connected to Arduino 5V, the board reset constantly (insufficient current)\n3. The shoulder joint servo got warm and eventually stopped responding\n\nThe arm could barely lift itself, let alone any payload."
+      },
+      "testing": "Tested each servo individually with a simple sweep sketch. Each servo worked fine alone. The problems were specifically caused by insufficient power and weak structure — not bad servos.",
+      "v2": {
+        "what": "Rebuilt with 3mm acrylic sheets instead of cardboard (laser-cut at school). Added a dedicated 5V/3A power supply for servos (separate from Arduino). Upgraded shoulder servo to MG996R (10 kg/cm torque).",
+        "improved": "The arm held position without drooping. The power supply eliminated all reset issues. The MG996R had enough torque to hold the forearm + claw weight at full extension. Pick-and-place worked reliably for objects up to ~100g."
+      },
+      "reflection": "Three key lessons:\n\n1. Power always matters: always calculate the current draw of all servos before choosing a power source. SG90s draw ~150mA stall, MG996Rs draw ~500mA. Four servos = up to 2A.\n\n2. Structural material choices are critical: cardboard is fine for mockups, never for a real build under load.\n\n3. Test subsystems separately first: I could have avoided the whole power issue by checking servo power requirements before building anything."
+    },
+    {
+      "slug": "servo-failure",
+      "order": 2,
+      "summary": "Powered three MG996R servos from Arduino 5V pin. They jittered, then stopped working. Deep dive into why and how to fix it.",
+      "emoji": "⚠️",
+      "title": "Why My Servo Burned Out",
+      "date": "March 18, 2025",
+      "tags": [
+        "Debugging",
+        "Power",
+        "Servos"
+      ],
+      "goal": "Understand why three MG996R servos stopped working during a test session and how to prevent it from happening again.",
+      "problem": "I powered three MG996R servos directly from Arduino's 5V pin while testing my arm. Within two minutes, the servos began jittering uncontrollably. Within five minutes, one stopped responding entirely.",
+      "v1": {
+        "what": "Connected all three MG996R servo VCC lines directly to the Arduino 5V pin. Uploaded a sketch that moved all servos simultaneously to various positions.",
+        "failed": "Arduino's onboard regulator provides about 500mA total. Three MG996Rs stall at up to 500mA each — that's 1.5A potential draw from a 500mA supply.\n\nThe result: voltage drops. Servos receive insufficient voltage → they jitter (trying to reach position but can't hold it) → draw more current trying → voltage drops further. This thermal feedback loop eventually burned out one servo's control circuit."
+      },
+      "testing": "Used a multimeter to measure actual voltage at servo pins during operation. It dropped from 5V to 3.2V the moment all three servos moved simultaneously. 3.2V is below the minimum operating voltage for MG996R.",
+      "v2": {
+        "what": "Added a dedicated 5V 3A switching power supply for servos. Connected servo grounds to Arduino ground (common ground), but servo VCC to external supply.",
+        "improved": "Voltage at servo pins held steady at 4.95V even during full-load operation. No jitter. No overheating. All three servos responding correctly."
+      },
+      "reflection": "Rule I now follow for every project:\n\nCurrent budget = sum of max stall current for all servos + 20% headroom\n\nFor this project: 3 × 500mA × 1.2 = 1.8A minimum. I now always power servos from a dedicated supply and only share ground with Arduino."
+    },
+    {
+      "slug": "wheel-testing",
+      "order": 3,
+      "summary": "Compared rubber, foam, omni, and mecanum wheels for traction, speed, and turning. What I found surprised me.",
+      "emoji": "🛞",
+      "title": "Testing 4 Different Wheel Types",
+      "date": "March 25, 2025",
+      "tags": [
+        "Wheels",
+        "Mechanical",
+        "Testing"
+      ],
+      "goal": "Find the best wheel type for an indoor navigation robot. Criteria: straight-line traction, turning accuracy, and surface compatibility.",
+      "problem": "I had four types of wheels available and no clear understanding of which performed best. I designed a systematic test to measure each type's performance on three surfaces: smooth tile, carpet, and hardwood.",
+      "v1": {
+        "what": "Built a simple 2WD test platform. Swapped in each wheel type and ran three tests: straight-line accuracy over 2 meters, spin-turn radius, and traction on incline (10° ramp).",
+        "failed": "Foam wheels had excellent traction but high rolling resistance — the robot was 30% slower. Omni-wheels allowed impressive sideways movement but provided poor straight-line traction on carpet (slipped constantly)."
+      },
+      "testing": "Ran each test five times per wheel type and averaged results. Marked the floor with tape for consistent start/end positions. Used a stopwatch for speed tests.",
+      "v2": {
+        "what": "Narrowed to two finalists: standard rubber wheels and mecanum wheels. Did extended testing on carpet since that was the competition surface.",
+        "improved": "Rubber wheels won overall — best balance of traction, speed, and simplicity. Mecanum wheels were impressive but required careful power balancing to drive straight and were 40% slower due to rolling geometry."
+      },
+      "reflection": "The 'best' wheel depends entirely on your use case. For my indoor navigation robot on mixed surfaces, standard rubber wheels with an adequate wheelbase were the right choice. Omni and mecanum wheels are great for specific situations (omnidirectional movement) but not general use."
+    },
+    {
+      "slug": "intake-redesign",
+      "order": 4,
+      "summary": "The V1 claw couldn't reliably grip game pieces. Three redesigns later, here's what finally worked.",
+      "emoji": "🔄",
+      "title": "Redesigning the Intake Mechanism",
+      "date": "April 2, 2025",
+      "tags": [
+        "Claw",
+        "Redesign",
+        "Iteration"
+      ],
+      "goal": "Redesign the robot's claw mechanism to reliably grip irregular-shaped foam game pieces at a 30° approach angle.",
+      "problem": "V1 claw used two rigid fingers controlled by one servo. It worked on flat objects but failed on foam pieces because they would compress and slip out, and the rigid fingers couldn't conform to the shape.",
+      "v1": {
+        "what": "Two laser-cut acrylic fingers, connected via a simple linkage to a single MG90S servo. Fingers closed in parallel (both moving equal amounts toward center).",
+        "failed": "Grip success rate: 45% in testing. Main failure mode: foam piece would compress between fingers but spring back and pop out when robot moved. Rigid fingers couldn't compensate for irregular shapes."
+      },
+      "testing": "Filmed all grip attempts in slow motion. Identified that failure happened in the 'transport' phase (after gripping, during movement) more than during the initial grip.",
+      "v2": {
+        "what": "Added foam padding to inner finger surfaces (conformable grip). Changed from parallel-close to pivot-close motion (one finger is fixed, other pivots into it — creates more consistent pressure). Added a small rubber band tension to hold grip passively without continuous servo power.",
+        "improved": "Grip success rate: 87% in testing. Foam padding compensated for shape irregularities. Pivot motion created more contact area. Passive tension held grip without motor power, preventing jitter from releasing the piece."
+      },
+      "reflection": "Iteration 3 (not documented here) reached 94% by adding a passive wrist spring to self-align on approach. Key insight: solving transport failure required passive grip mechanisms, not stronger servo force."
+    },
+    {
+      "slug": "autonomous-debugging",
+      "order": 5,
+      "summary": "Robot worked perfectly in testing but failed in competition. The culprit: sensor interference from other robots' IR signals.",
+      "emoji": "🐛",
+      "title": "Debugging Autonomous Mode",
+      "date": "April 15, 2025",
+      "tags": [
+        "Autonomous",
+        "Debugging",
+        "Sensors"
+      ],
+      "goal": "Investigate why the autonomous navigation program that worked perfectly in our practice space failed during competition.",
+      "problem": "During our first competition match, the robot's line-following worked for ~5 seconds then became erratic and left the track. Same code had 100% success rate in our own gym the week before.",
+      "v1": {
+        "what": "Competition field had multiple other robots running simultaneously. Our robot used IR-based line following. We used the same code from our practice sessions without modification.",
+        "failed": "Post-match analysis: other teams' robots also used IR sensors. The competition field had up to 6 robots operating simultaneously — all emitting IR signals. Our IR sensors picked up stray IR from other robots and interpreted it as line detection signals.\n\nThe result: phantom line detections causing the robot to turn erratically."
+      },
+      "testing": "Tested by pointing another team's IR sensor array directly at ours. Confirmed: our sensor readings spiked significantly when another robot's IR source was nearby.",
+      "v2": {
+        "what": "Three changes: (1) Added a narrow cardboard shield around sensors (blocked IR from angles other than straight down), (2) Implemented a moving average filter on sensor readings (required 3 consecutive consistent readings before acting), (3) Reduced sensor sensitivity via potentiometer adjustment.",
+        "improved": "Reduced false positive rate from ~40% to ~3% during multi-robot testing. Robot successfully navigated in the second competition match."
+      },
+      "reflection": "Testing in isolation doesn't replicate real competition conditions. Before any competition, consider: What electromagnetic or optical interference will exist? What are other robots doing? This applies to any sensor — not just IR."
+    }
+  ],
+  "resources": [
+    {
+      "category": "Getting Started",
+      "emoji": "🚀",
+      "items": [
+        {
+          "title": "Arduino Official Documentation",
+          "desc": "Complete reference for all Arduino functions, boards, and libraries.",
+          "type": "Website",
+          "free": true
+        },
+        {
+          "title": "Arduino IDE",
+          "desc": "The official programming environment for writing and uploading Arduino code.",
+          "type": "Software",
+          "free": true
+        },
+        {
+          "title": "Tinkercad Circuits",
+          "desc": "Simulate Arduino circuits in your browser before buying any hardware.",
+          "type": "Simulator",
+          "free": true
+        }
+      ]
+    },
+    {
+      "category": "Learning",
+      "emoji": "📖",
+      "items": [
+        {
+          "title": "Arduino Project Hub",
+          "desc": "Thousands of community projects with full instructions.",
+          "type": "Website",
+          "free": true
+        },
+        {
+          "title": "Instructables - Robotics",
+          "desc": "Step-by-step guides for beginner to advanced robot projects.",
+          "type": "Website",
+          "free": true
+        },
+        {
+          "title": "Robotics Academy (CMU)",
+          "desc": "Free curriculum from Carnegie Mellon for middle and high school students.",
+          "type": "Course",
+          "free": true
+        },
+        {
+          "title": "MIT OpenCourseWare - Robotics",
+          "desc": "University-level robotics lectures and materials from MIT.",
+          "type": "Course",
+          "free": true
+        }
+      ]
+    },
+    {
+      "category": "Parts & Kits",
+      "emoji": "🛒",
+      "items": [
+        {
+          "title": "Arduino Starter Kit",
+          "desc": "Official Arduino kit with board, components, and project book. Best first purchase.",
+          "type": "Kit",
+          "free": false
+        },
+        {
+          "title": "Elegoo Smart Robot Car Kit",
+          "desc": "Complete beginner robot car kit with all parts and instructions (~$35).",
+          "type": "Kit",
+          "free": false
+        },
+        {
+          "title": "Adafruit",
+          "desc": "High quality components with excellent documentation. Great for sensors.",
+          "type": "Store",
+          "free": false
+        },
+        {
+          "title": "SparkFun",
+          "desc": "Electronics retailer focused on education and hobbyist robotics.",
+          "type": "Store",
+          "free": false
+        }
+      ]
+    },
+    {
+      "category": "Communities",
+      "emoji": "👥",
+      "items": [
+        {
+          "title": "r/robotics",
+          "desc": "Subreddit for robotics enthusiasts of all levels. Good for questions.",
+          "type": "Community",
+          "free": true
+        },
+        {
+          "title": "Arduino Forums",
+          "desc": "Official Arduino community — best place for code-specific questions.",
+          "type": "Forum",
+          "free": true
+        },
+        {
+          "title": "FIRST Robotics Community",
+          "desc": "For students interested in competitive robotics (FRC, FTC, FLL).",
+          "type": "Community",
+          "free": true
+        },
+        {
+          "title": "Hackaday.io",
+          "desc": "Project showcase and community for hardware builders.",
+          "type": "Community",
+          "free": true
+        }
+      ]
+    },
+    {
+      "category": "Tools & Software",
+      "emoji": "🔧",
+      "items": [
+        {
+          "title": "Fritzing",
+          "desc": "Visual wiring diagram software. Create circuit diagrams to document your projects.",
+          "type": "Software",
+          "free": true
+        },
+        {
+          "title": "KiCad",
+          "desc": "Free PCB design software for when you outgrow the breadboard.",
+          "type": "Software",
+          "free": true
+        },
+        {
+          "title": "Fusion 360",
+          "desc": "3D CAD software. Free for students and hobbyists. Design robot parts.",
+          "type": "Software",
+          "free": true
+        },
+        {
+          "title": "Serial Monitor (Arduino IDE)",
+          "desc": "Built into Arduino IDE. Essential for debugging sensor values.",
+          "type": "Built-in",
+          "free": true
+        }
+      ]
+    },
+    {
+      "category": "Competitions",
+      "emoji": "🏆",
+      "items": [
+        {
+          "title": "FIRST Robotics (FRC)",
+          "desc": "High school robotics competition. 6-week build season, regional + national events.",
+          "type": "Competition",
+          "free": false
+        },
+        {
+          "title": "FIRST Tech Challenge (FTC)",
+          "desc": "Smaller scale than FRC. Uses Android + REV hardware. Grades 7–12.",
+          "type": "Competition",
+          "free": false
+        },
+        {
+          "title": "VEX Robotics",
+          "desc": "Popular competition platform. Multiple divisions from middle school to college.",
+          "type": "Competition",
+          "free": false
+        },
+        {
+          "title": "Science Olympiad",
+          "desc": "Includes robotics events alongside other science disciplines.",
+          "type": "Competition",
+          "free": false
+        }
+      ]
+    }
+  ],
+  "startHere": {
+    "parts": [
+      {
+        "icon": "🧠",
+        "name": "Microcontroller (Arduino)",
+        "desc": "The brain of your robot. It reads sensor data and controls the motors based on your code."
+      },
+      {
+        "icon": "🔋",
+        "name": "Battery / Power",
+        "desc": "Powers everything. Most beginners start with AA batteries or a 9V battery pack."
+      },
+      {
+        "icon": "⚡",
+        "name": "Breadboard",
+        "desc": "A tool for connecting components without soldering. Great for testing circuits quickly."
+      },
+      {
+        "icon": "⚙️",
+        "name": "Motors",
+        "desc": "Convert electrical energy into movement. DC motors spin wheels; servos rotate to a specific angle."
+      },
+      {
+        "icon": "👁️",
+        "name": "Sensors",
+        "desc": "Allow robots to detect the world — distance, light, color, and more."
+      },
+      {
+        "icon": "🪛",
+        "name": "Jumper Wires",
+        "desc": "Short wires used to connect components on your breadboard to the Arduino."
+      }
+    ],
+    "steps": [
+      {
+        "step": "1",
+        "title": "Learn Robot Parts",
+        "desc": "Understand what each component does before buying anything.",
+        "link": "/lessons/robot-parts"
+      },
+      {
+        "step": "2",
+        "title": "Learn Coding Basics",
+        "desc": "You don't need to be a programmer — just learn the basics of Arduino code.",
+        "link": "/lessons/coding-basics"
+      },
+      {
+        "step": "3",
+        "title": "Build a Simple Project",
+        "desc": "Start with the line-following robot. It's the perfect first build.",
+        "link": "/projects/line-following-robot"
+      },
+      {
+        "step": "4",
+        "title": "Improve Your Designs",
+        "desc": "Read your build logs, find what failed, and iterate.",
+        "link": "/build-logs"
+      }
+    ],
+    "checklist": [
+      "Learn what a motor does",
+      "Learn how a sensor detects things",
+      "Understand what a microcontroller is",
+      "Write your first Arduino program (blink an LED!)",
+      "Build a simple robot project",
+      "Test your robot and find the bugs",
+      "Improve one part of your design",
+      "Document your build with a build log"
+    ]
+  },
+  "about": {
+    "timeline": [
+      {
+        "year": "Age 12",
+        "title": "First Arduino",
+        "desc": "Got an Arduino Uno for my birthday. Spent three weeks making an LED blink — and loved every frustrating minute of it."
+      },
+      {
+        "year": "Age 14",
+        "title": "Joined FTC",
+        "desc": "Competed in FIRST Tech Challenge with my school team. We built a robot that could stack rings. We came in 8th. It was incredible."
+      },
+      {
+        "year": "Age 16",
+        "title": "Started teaching",
+        "desc": "Volunteered to teach a robotics workshop for 5th graders. Realized how hard it was to explain things clearly — and how rewarding it was when something clicked."
+      },
+      {
+        "year": "Age 17",
+        "title": "Built this site",
+        "desc": "Couldn't find a beginner resource that explained everything end-to-end without assuming prior knowledge. So I built one."
+      }
+    ],
+    "values": [
+      {
+        "icon": "🧩",
+        "title": "Start simple",
+        "desc": "Every concept is broken down to its most basic form before adding complexity."
+      },
+      {
+        "icon": "🔧",
+        "title": "Build real things",
+        "desc": "Theory only sticks when you apply it. Every lesson connects to something you can actually make."
+      },
+      {
+        "icon": "❌",
+        "title": "Show the failures",
+        "desc": "Real engineering means things break. Build logs show the full process, including what went wrong."
+      },
+      {
+        "icon": "🎯",
+        "title": "No assumed knowledge",
+        "desc": "If you've never touched a circuit board before, you belong here. We start from zero."
+      }
+    ]
+  }
+}

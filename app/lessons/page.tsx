@@ -1,80 +1,18 @@
 import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { listLessons } from "@/lib/content-db";
 
-const lessons = [
-  {
-    slug: "what-is-a-robot",
-    emoji: "🤖",
-    title: "What Is a Robot?",
-    desc: "Understand the sense-think-act loop that powers every robot ever built.",
-    time: "5 min",
-    difficulty: "Beginner",
-  },
-  {
-    slug: "robot-parts",
-    emoji: "🔩",
-    title: "Robot Parts Explained",
-    desc: "Learn what every component does: Arduino, motors, sensors, wires, and more.",
-    time: "8 min",
-    difficulty: "Beginner",
-  },
-  {
-    slug: "motors",
-    emoji: "⚙️",
-    title: "Motors & Movement",
-    desc: "DC motors, servo motors, and stepper motors — how they work and when to use them.",
-    time: "7 min",
-    difficulty: "Beginner",
-  },
-  {
-    slug: "sensors",
-    emoji: "👁️",
-    title: "How Sensors Work",
-    desc: "Ultrasonic, IR, color, and touch sensors. What they detect and how to wire them.",
-    time: "8 min",
-    difficulty: "Beginner",
-  },
-  {
-    slug: "coding-basics",
-    emoji: "💻",
-    title: "Coding Basics for Robots",
-    desc: "Variables, loops, conditions, and functions — just enough code to control a robot.",
-    time: "10 min",
-    difficulty: "Beginner",
-  },
-  {
-    slug: "mechanical-design",
-    emoji: "📐",
-    title: "Mechanical Design",
-    desc: "How robot bodies are designed: chassis, wheels, arms, and structural stability.",
-    time: "7 min",
-    difficulty: "Intermediate",
-  },
-  {
-    slug: "engineering-process",
-    emoji: "🔄",
-    title: "The Engineering Process",
-    desc: "Design, build, test, improve. The cycle that all engineers use to solve problems.",
-    time: "6 min",
-    difficulty: "Beginner",
-  },
-  {
-    slug: "common-mistakes",
-    emoji: "⚠️",
-    title: "Common Beginner Mistakes",
-    desc: "The most frequent mistakes new builders make — and how to avoid them.",
-    time: "6 min",
-    difficulty: "Beginner",
-  },
-];
+export const dynamic = "force-dynamic";
 
 const difficultyColor: Record<string, string> = {
   Beginner: "border-accent/30 bg-accent/10 text-accent",
   Intermediate: "border-secondary/30 bg-secondary/10 text-secondary",
 };
 
-export default function LessonsPage() {
+export default async function LessonsPage() {
+  const lessons = await listLessons();
+
   return (
     <div className="py-12 sm:py-16 px-4 sm:px-6">
       <div className="mx-auto max-w-5xl">

@@ -1,72 +1,9 @@
 import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { listProjectsByLevel } from "@/lib/content-db";
 
-const projects = [
-  {
-    level: "Beginner",
-    items: [
-      {
-        slug: "line-following-robot",
-        emoji: "🚗",
-        title: "Line-Following Robot",
-        desc: "Build a robot that follows a black line using two IR sensors and an Arduino.",
-        time: "2–3 hrs",
-        cost: "$25–35",
-      },
-      {
-        slug: "obstacle-avoidance-robot",
-        emoji: "🏎️",
-        title: "Obstacle Avoidance Robot",
-        desc: "A robot that detects walls and objects with an ultrasonic sensor and steers around them.",
-        time: "3–4 hrs",
-        cost: "$30–40",
-      },
-      {
-        slug: "simple-claw",
-        emoji: "🦾",
-        title: "Simple Claw Mechanism",
-        desc: "Design and build a servo-powered claw that can open and close to pick up small objects.",
-        time: "1–2 hrs",
-        cost: "$10–15",
-      },
-    ],
-  },
-  {
-    level: "Intermediate",
-    items: [
-      {
-        slug: "robotic-arm",
-        emoji: "🦿",
-        title: "3-DOF Robotic Arm",
-        desc: "Build a joystick-controlled robotic arm with three servo joints and a claw end effector.",
-        time: "5–8 hrs",
-        cost: "$40–60",
-      },
-      {
-        slug: "plant-watering-robot",
-        emoji: "🌱",
-        title: "Automatic Plant Waterer",
-        desc: "A sensor-driven system that checks soil moisture and waters your plant automatically.",
-        time: "3–4 hrs",
-        cost: "$20–30",
-      },
-    ],
-  },
-  {
-    level: "Real World",
-    items: [
-      {
-        slug: "trash-sorter",
-        emoji: "♻️",
-        title: "Trash Sorting Robot",
-        desc: "Uses a color sensor to identify recyclable vs. non-recyclable items and sort them into bins.",
-        time: "6–10 hrs",
-        cost: "$50–80",
-      },
-    ],
-  },
-];
+export const dynamic = "force-dynamic";
 
 const levelColor: Record<string, string> = {
   Beginner: "border-accent/30 bg-accent/10 text-accent",
@@ -74,7 +11,9 @@ const levelColor: Record<string, string> = {
   "Real World": "border-primary/30 bg-primary/10 text-primary",
 };
 
-export default function ProjectsPage() {
+export default async function ProjectsPage() {
+  const projects = await listProjectsByLevel();
+
   return (
     <div className="py-12 sm:py-16 px-4 sm:px-6">
       <div className="mx-auto max-w-5xl">
@@ -108,11 +47,11 @@ export default function ProjectsPage() {
                       </CardHeader>
                       <CardContent>
                         <p className="text-sm text-muted-foreground mb-4">
-                          {project.desc}
+                          {project.shortDesc}
                         </p>
                         <div className="flex gap-3 text-xs text-muted-foreground">
-                          <span>⏱ {project.time}</span>
-                          <span>💰 {project.cost}</span>
+                          <span>⏱ {project.listTime}</span>
+                          <span>💰 {project.listCost}</span>
                         </div>
                       </CardContent>
                     </Card>
